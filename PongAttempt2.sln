@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PongAttempt2", "PongAttempt2.csproj", "{97836A57-2FEF-4AD8-BA08-CA058C4302AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97836A57-2FEF-4AD8-BA08-CA058C4302AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97836A57-2FEF-4AD8-BA08-CA058C4302AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97836A57-2FEF-4AD8-BA08-CA058C4302AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97836A57-2FEF-4AD8-BA08-CA058C4302AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
