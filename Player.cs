@@ -7,7 +7,7 @@ namespace PongAttempt2
     {
         public Vector2 position;
         public Texture2D sprite;
-        public int playerId;s
+        public int playerId;
         public void Draw()
         {
             Renderer.instance.DrawSpriteCentered(sprite, Color.White, playerId == 1);

@@ -8,5 +8,10 @@ namespace PongAttempt2
         public Vector2 position;
         public Texture2D sprite;
         public Vector2 velocity;
+
+        public void Draw()
+        {
+            
+        }
     }
 }
