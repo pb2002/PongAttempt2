@@ -4,7 +4,13 @@
     <projectFile>PongAttempt2.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="" />
+    <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PongGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PongGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,11 +41,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="CSharpParameterNameHintsOptions" />
+    <property name="settings.editor.selected.configurable" value="CSharpTypeNameHintsOptions" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -70,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632309854046</updated>
-      <workItem from="1632309858100" duration="5257000" />
+      <workItem from="1632309858100" duration="9793000" />
     </task>
     <task id="LOCAL-00001" summary="afwefa">
       <created>1632310929911</created>
@@ -107,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632314788592</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="eeWF">
+      <created>1632315225153</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632315225153</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +150,7 @@
     <MESSAGE value="a" />
     <MESSAGE value="peepeepoopoo" />
     <MESSAGE value="waarom wordt niet alles geadd i swear to god" />
-    <option name="LAST_COMMIT_MESSAGE" value="waarom wordt niet alles geadd i swear to god" />
+    <MESSAGE value="eeWF" />
+    <option name="LAST_COMMIT_MESSAGE" value="eeWF" />
   </component>
 </project>
