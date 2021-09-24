@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GameMode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Timer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PongGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PongGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +27,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Player.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yUcxWAvMEGKYrypE1eRW06Ry78" />
   <component name="ProjectLevelVcsManager">
@@ -47,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="CSharpTypeNameHintsOptions" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -78,7 +76,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632309854046</updated>
-      <workItem from="1632309858100" duration="9793000" />
+      <workItem from="1632309858100" duration="9861000" />
+      <workItem from="1632466570405" duration="7797000" />
     </task>
     <task id="LOCAL-00001" summary="afwefa">
       <created>1632310929911</created>
@@ -122,14 +121,21 @@
       <option name="project" value="LOCAL" />
       <updated>1632315225153</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ding werkt">
+      <created>1632319752228</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632319752228</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -141,6 +147,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -151,6 +158,7 @@
     <MESSAGE value="peepeepoopoo" />
     <MESSAGE value="waarom wordt niet alles geadd i swear to god" />
     <MESSAGE value="eeWF" />
-    <option name="LAST_COMMIT_MESSAGE" value="eeWF" />
+    <MESSAGE value="ding werkt" />
+    <option name="LAST_COMMIT_MESSAGE" value="ding werkt" />
   </component>
 </project>
