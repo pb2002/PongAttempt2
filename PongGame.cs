@@ -11,6 +11,7 @@ namespace PongAttempt2
 
         public static Vector2 screenSize = new Vector2(1280, 720);
         public static float playerSpeed = 300f;
+        public static float ballSpeed = 300f;
         
         private static Rectangle screenBounds;
         
@@ -36,11 +37,11 @@ namespace PongAttempt2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            ball = new Ball(screenSize / 2, Vector2.UnitX, ballSpeed);
             
             player1 = new Player(0, new Vector2(100, screenSize.Y/2), playerSpeed);
-            player2 = new Player(0, new Vector2(screenSize.X-100, screenSize.Y/2), playerSpeed);
+            player2 = new CPUPlayer(1, new Vector2(screenSize.X-100, screenSize.Y/2), playerSpeed, ball);
             
-            ball = new Ball(screenSize / 2, Vector2.UnitX, 300);
             base.Initialize();
         }
 
@@ -53,7 +54,14 @@ namespace PongAttempt2
             ball.sprite = Content.Load<Texture2D>("ball");
             player2.sprite = player1.sprite;
         }
-        
+
+        private void Reset()
+        {
+            ball.speed = ballSpeed;
+            player1.speed = playerSpeed;
+            player2.speed = playerSpeed;
+            ball.Reset();
+        }
         protected override void Update(GameTime gameTime)
         {
             var dt = (float) gameTime.ElapsedGameTime.TotalSeconds;
@@ -80,9 +88,17 @@ namespace PongAttempt2
                 
             }
             
-            if (ball.position.X < 0 || ball.position.X > screenSize.X)
+            if (ball.position.X < 0)
             {
-                // lose condition
+                player1.lives--;
+                
+                Reset();
+            }
+            else if (ball.position.X > screenSize.X)
+            {
+                player2.lives--;
+                
+                Reset();
             }
             
             base.Update(gameTime);

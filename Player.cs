@@ -29,10 +29,15 @@ namespace PongAttempt2
             this.speed = speed;
         }
 
-        public void Move(float dt)
+        public virtual void Move(float dt)
         {
             position.Y += InputHandler.instance.PlayerMovementInput[playerId] * speed * dt;
-            position.Y = MathHelper.Clamp(position.Y, sprite.Height / 2f, speed - sprite.Height / 2f);
+            ClampYPosition();
+        }
+
+        protected void ClampYPosition()
+        {
+            position.Y = MathHelper.Clamp(position.Y, sprite.Height / 2f, PongGame.screenSize.Y - sprite.Height / 2f);
         }
         public void Draw()
         {
