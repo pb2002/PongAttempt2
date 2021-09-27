@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CPUPlayer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LifeCounter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/States/GameOverState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/States/MenuState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/States/State.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/States/TwoPlayerGameState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CPUPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CPUPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ball.png" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ball.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/Content/player.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PongGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PongGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +37,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://E:/projects/school/PongAttempt2/Ball.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1yUcxWAvMEGKYrypE1eRW06Ry78" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -37,7 +51,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34995976" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -77,6 +91,7 @@
       <workItem from="1632309858100" duration="9861000" />
       <workItem from="1632466570405" duration="13300000" />
       <workItem from="1632482368316" duration="1005000" />
+      <workItem from="1632738713545" duration="8687000" />
     </task>
     <task id="LOCAL-00001" summary="afwefa">
       <created>1632310929911</created>

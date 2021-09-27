@@ -8,7 +8,7 @@ namespace PongAttempt2
         private Random random = new Random();
         private Ball ball;
 
-        public CPUPlayer(int playerId, Vector2 position, float speed, Ball ball) : base(playerId, position, speed)
+        public CPUPlayer(int playerId, Vector2 position, Vector2 normal, float speed, Ball ball) : base(playerId, position, normal, speed)
         {
             this.ball = ball;
         }

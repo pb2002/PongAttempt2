@@ -6,12 +6,14 @@ namespace PongAttempt2
 {
     public class Player
     {
+        private static readonly Color[] playerColors = { new Color(255,128,72), new Color(72,128,255) };
+        
         public int playerId;
+        public Vector2 normal;
         public Vector2 position;
         public Texture2D sprite;
         public float speed;
-
-        public int lives = 3;
+        public int lives = 1;
         public Rectangle Bounds
         {
             get
@@ -21,11 +23,12 @@ namespace PongAttempt2
                 return b;
             }
         }
-
-        public Player(int playerId, Vector2 position, float speed)
+        public Vector2 Size => new Vector2(sprite.Width, sprite.Height);
+        public Player(int playerId, Vector2 position, Vector2 normal, float speed)
         {
-            this.position = position;
             this.playerId = playerId;
+            this.position = position;
+            this.normal = normal;
             this.speed = speed;
         }
 
@@ -41,7 +44,7 @@ namespace PongAttempt2
         }
         public void Draw()
         {
-            Renderer.instance.DrawSpriteCentered(sprite, position, Color.White, playerId == 1);
+            Renderer.instance.DrawSpriteCentered(sprite, position, playerColors[playerId], playerId == 1);
         }
     }
 }
