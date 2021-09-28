@@ -1,17 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace PongAttempt2
+namespace Pong
 {
-    public class LifeCounter
+    public class LifeCounter : Entity
     {
-        public Vector2 position;
-        public float spacing;
-        public Texture2D sprite;
+        private static readonly Color heartColor = new Color(255, 64, 128);
+        private float spacing;
 
-        public LifeCounter(Vector2 position, float spacing)
+        public LifeCounter(Vector2 position, float spacing) : base(position)
         {
-            this.position = position;
             this.spacing = spacing;
         }
 
@@ -22,7 +20,7 @@ namespace PongAttempt2
             drawPos.X -= (spacing + widthOffset) * (lives-1) * 0.5f;
             for (int i = 0; i < lives; i++)
             {
-                Renderer.instance.DrawSpriteCentered(sprite, drawPos, new Color(255,32,64), false);
+                Renderer.instance.DrawSpriteCentered(sprite, drawPos, heartColor, false);
                 drawPos.X += spacing + widthOffset;
             }
         }

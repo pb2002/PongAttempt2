@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace PongAttempt2
+namespace Pong
 {
     public class InputHandler : Singleton<InputHandler>
     {
@@ -13,19 +13,26 @@ namespace PongAttempt2
 
         public Keys[][] KeyboardMapping { get; private set; } =
         {
-            new[] {Keys.W, Keys.S, Keys.Space, Keys.Escape},
+            new[] {Keys.W, Keys.S, Keys.Enter, Keys.Escape},
             new[] {Keys.Up, Keys.Down}
         };
 
         public int[] PlayerMovementInput { get; private set; } = new[] {0, 0};
+        
+        private bool confirmDown = false;
         public bool Confirm { get; private set; } = false;
         public bool Exit { get; private set; } = false;
+
+        public Vector2 MousePosition { get; private set; }
+
+        private bool leftMouseDown = false;
+        public bool LeftMouse { get; private set; }
         
         public void UpdateInput()
         {
             KeyboardState keyboardState = Keyboard.GetState();
             GamePadState gamePadState = GamePad.GetState(0);
-            
+            MouseState mouseState = Mouse.GetState();
             // Player Movement Input
             for (int i = 0; i < PlayerMovementInput.Length; i++)
             {
@@ -37,11 +44,19 @@ namespace PongAttempt2
                 PlayerMovementInput[i] = moveInput;
             }
             // Confirm
-            Confirm = keyboardState.IsKeyDown(KeyboardMapping[0][2]) ||
+            bool confirmRaw = keyboardState.IsKeyDown(KeyboardMapping[0][2]) ||
                       gamePadState.IsButtonDown(ControllerMapping[0][2]);
+            Confirm = confirmRaw && !confirmDown;
+            confirmDown = confirmRaw;
             // Exit
             Exit = keyboardState.IsKeyDown(KeyboardMapping[0][3]) ||
                       gamePadState.IsButtonDown(ControllerMapping[0][3]);
+            
+            MousePosition = mouseState.Position.ToVector2();
+            bool leftMouseRaw = mouseState.LeftButton == ButtonState.Pressed;
+            LeftMouse = leftMouseRaw && !leftMouseDown;
+            leftMouseDown = leftMouseRaw;
+
         }
     }
 }

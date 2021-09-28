@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PongAttempt2
+namespace Pong
 {
     public static class Program
     {

@@ -5,21 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LifeCounter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/States/GameOverState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/States/MenuState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/States/State.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/States/TwoPlayerGameState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/fade.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entities/Collectible.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entities/Entity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entities/ScoreBonus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Prefs.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/States/CompetitiveGameState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/States/CoopGameOverState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI/Button.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI/Label.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI/UIElement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CPUPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CPUPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Ball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CPUPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/CPUPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ball.png" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ball.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/Content/player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/scoreFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/scoreFont.spritefont" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/subtitleFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/subtitleFont.spritefont" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/titleFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/titleFont.spritefont" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InputHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LifeCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/LifeCounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PongAttempt2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PongAttempt2.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PongGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PongGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Singleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/GameOverState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameOverState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/MenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/TwoPlayerGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/CoopGameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Timer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +51,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://E:/projects/school/PongAttempt2/Ball.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yUcxWAvMEGKYrypE1eRW06Ry78" />
   <component name="ProjectLevelVcsManager">
@@ -91,7 +103,9 @@
       <workItem from="1632309858100" duration="9861000" />
       <workItem from="1632466570405" duration="13300000" />
       <workItem from="1632482368316" duration="1005000" />
-      <workItem from="1632738713545" duration="8687000" />
+      <workItem from="1632738713545" duration="12365000" />
+      <workItem from="1632767721274" duration="16123000" />
+      <workItem from="1632820917106" duration="5713000" />
     </task>
     <task id="LOCAL-00001" summary="afwefa">
       <created>1632310929911</created>
@@ -149,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632475002527</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- added game states&#10;- migrated gameplay behaviour to separate game state class&#10;- added life counter&#10;- changed color scheme&#10;- added DrawText method&#10;- added DrawSpriteCentered overload for rotating sprites&#10;- disabled fixed time step&#10;- added game over screen">
+      <created>1632749746102</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632749746102</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +202,7 @@
     <MESSAGE value="eeWF" />
     <MESSAGE value="ding werkt" />
     <MESSAGE value="added base game functionality&#10;added timer class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added base game functionality&#10;added timer class" />
+    <MESSAGE value="- added game states&#10;- migrated gameplay behaviour to separate game state class&#10;- added life counter&#10;- changed color scheme&#10;- added DrawText method&#10;- added DrawSpriteCentered overload for rotating sprites&#10;- disabled fixed time step&#10;- added game over screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added game states&#10;- migrated gameplay behaviour to separate game state class&#10;- added life counter&#10;- changed color scheme&#10;- added DrawText method&#10;- added DrawSpriteCentered overload for rotating sprites&#10;- disabled fixed time step&#10;- added game over screen" />
   </component>
 </project>

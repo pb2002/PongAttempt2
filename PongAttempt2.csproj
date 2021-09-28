@@ -5,10 +5,21 @@
         <PublishReadyToRun>false</PublishReadyToRun>
         <TieredCompilation>false</TieredCompilation>
         <UseWindowsForms>true</UseWindowsForms>
+        <AssemblyName>Pong</AssemblyName>
+        <RootNamespace>Pong</RootNamespace>
+        <IsPackable>false</IsPackable>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion></FileVersion>
     </PropertyGroup>
     <PropertyGroup>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <ApplicationIcon>Icon.ico</ApplicationIcon>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
     <ItemGroup>
         <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />

@@ -1,4 +1,4 @@
-﻿namespace PongAttempt2
+﻿namespace Pong
 {
     public class Timer
     {
@@ -21,7 +21,7 @@
         }
         
         public static implicit operator Timer(float t) => new Timer(t);
-        public static implicit operator bool(Timer t) => t.Time < 0;
+        public static implicit operator bool(Timer t) => t.Time > 0;
         
     }
 }

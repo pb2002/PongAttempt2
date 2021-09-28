@@ -2,9 +2,15 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace PongAttempt2.States
+namespace Pong.States
 {
-    public class TwoPlayerGameState : State
+    public enum GameMode
+    {
+        OnePlayer,
+        TwoPlayer,
+        CPUBattle,
+    }
+    public class CompetitiveGameState : State
     {
         private Player player1;
         private Player player2;
@@ -12,17 +18,22 @@ namespace PongAttempt2.States
 
         private LifeCounter player1LifeCounter;
         private LifeCounter player2LifeCounter;
-        
-        public const float playerSpeed = 300f;
-        public const float ballSpeed = 300f;
-        
-        
-        public TwoPlayerGameState(PongGame game, ContentManager content) : base(game, content)
+
+        private GameMode gameMode;
+        public CompetitiveGameState(PongGame game, ContentManager content, GameMode gameMode) : base(game, content)
         {
-            ball = new Ball(PongGame.screenSize / 2, Vector2.UnitX, ballSpeed);
+            this.gameMode = gameMode;
             
-            player1 = new Player(0, new Vector2(100, PongGame.screenSize.Y/2), Vector2.UnitX, playerSpeed);
-            player2 = new Player(1, new Vector2(PongGame.screenSize.X-100, PongGame.screenSize.Y/2), -Vector2.UnitX, playerSpeed);
+            ball = new Ball(PongGame.screenSize / 2, Vector2.UnitX);
+            ball.Reset();
+
+            player1 = gameMode == GameMode.CPUBattle 
+                ? new CPUPlayer(0, new Vector2(100, PongGame.screenSize.Y/2), Vector2.UnitX, ball) 
+                : new Player(0, new Vector2(100, PongGame.screenSize.Y/2), Vector2.UnitX);
+            
+            player2 = gameMode == GameMode.TwoPlayer 
+                ? new Player(1, new Vector2(PongGame.screenSize.X-100, PongGame.screenSize.Y/2), -Vector2.UnitX) 
+                : new CPUPlayer(1, new Vector2(PongGame.screenSize.X-100, PongGame.screenSize.Y/2), -Vector2.UnitX, ball);
 
             player1LifeCounter = new LifeCounter(player1.position + 256 * Vector2.UnitX, 16);
             player2LifeCounter = new LifeCounter(player2.position - 256 * Vector2.UnitX, 16);
@@ -38,9 +49,8 @@ namespace PongAttempt2.States
         }
         private void Reset()
         {
-            ball.speed = ballSpeed;
-            player1.speed = playerSpeed;
-            player2.speed = playerSpeed;
+            player1.Reset();
+            player2.Reset();
             ball.Reset();
         }
         public override void Update(GameTime gameTime)
@@ -53,9 +63,9 @@ namespace PongAttempt2.States
 
             if (ball.CheckPlayerCollision(player1) || ball.CheckPlayerCollision(player2))
             {
-                ball.speed *= 1.05f;
-                player1.speed *= 1.05f;
-                player2.speed *= 1.05f;
+                ball.speed *= 1.02f;
+                player1.IncreaseDifficulty();
+                player2.IncreaseDifficulty();
             }
 
             if (ball.CheckWallCollision())
@@ -67,14 +77,20 @@ namespace PongAttempt2.States
             {
                 player1.lives--;
                 if (player1.lives == 0)
-                    game.SwitchState(new GameOverState(game, content, 0));
+                {
+                    game.SwitchState(new GameOverState(game, content, 1));
+                    return;
+                }
                 Reset();
             }
             else if (ball.position.X > PongGame.screenSize.X)
             {
                 player2.lives--;
                 if (player2.lives == 0)
-                    game.SwitchState(new GameOverState(game, content, 1));
+                {
+                    game.SwitchState(new GameOverState(game, content, 0));
+                    return;
+                }
                 Reset();
             }
         }

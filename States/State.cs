@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace PongAttempt2.States
+namespace Pong.States
 {
     public abstract class State
     {

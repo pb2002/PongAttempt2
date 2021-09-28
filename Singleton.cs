@@ -1,4 +1,4 @@
-﻿namespace PongAttempt2
+﻿namespace Pong
 {
     public class Singleton<T> where T : new()
     {
