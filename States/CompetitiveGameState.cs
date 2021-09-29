@@ -22,7 +22,7 @@ namespace Pong.States
 
 
         private GameMode gameMode;
-        public CompetitiveGameState(PongGame game, ContentManager content, GameMode gameMode) : base(game, content)
+        public CompetitiveGameState(PongGame game, GameMode gameMode) : base(game)
         {
             this.gameMode = gameMode;
             
@@ -72,7 +72,7 @@ namespace Pong.States
                 player1.lives--;
                 if (player1.lives == 0)
                 {
-                    game.SwitchState(new GameOverState(game, content, 1));
+                    game.SwitchState(new GameOverState(game, 1));
                     return;
                 }
                 Reset();
@@ -82,7 +82,7 @@ namespace Pong.States
                 player2.lives--;
                 if (player2.lives == 0)
                 {
-                    game.SwitchState(new GameOverState(game, content, 0));
+                    game.SwitchState(new GameOverState(game, 0));
                     return;
                 }
                 Reset();

@@ -12,7 +12,7 @@ namespace Pong.States
         private Button continueButton;
         
         private int winningPlayer;
-        public GameOverState(PongGame game, ContentManager content, int winningPlayer) : base(game, content)
+        public GameOverState(PongGame game, int winningPlayer) : base(game)
         {
             this.winningPlayer = winningPlayer;
             titleLabel = new Label(PongGame.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor, 
@@ -28,7 +28,7 @@ namespace Pong.States
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             continueButton.Update(dt);
             if(continueButton.IsPressed)
-                game.SwitchState(new MenuState(game, content));
+                game.SwitchState(new MenuState(game));
             
         }
 

@@ -7,11 +7,10 @@ namespace Pong.States
     public abstract class State
     {
         protected PongGame game;
-        protected ContentManager content;
-        public State(PongGame game, ContentManager content)
+        public State(PongGame game)
         {
             this.game = game;
-            this.content = content;
+            
         }
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(GameTime gameTime);

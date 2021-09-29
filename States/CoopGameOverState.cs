@@ -14,7 +14,7 @@ namespace Pong.States
 
         private int score;
         
-        public CoopGameOverState(PongGame game, ContentManager content, int score) : base(game, content)
+        public CoopGameOverState(PongGame game, int score) : base(game)
         {
             this.score = score;
             titleLabel = new Label(PongGame.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor, Assets.titleFont);
@@ -25,7 +25,7 @@ namespace Pong.States
         public override void Update(GameTime gameTime)
         {
             if(InputHandler.instance.Confirm)
-                game.SwitchState(new MenuState(game, content));
+                game.SwitchState(new MenuState(game));
         }
 
         public override void Draw(GameTime gameTime)

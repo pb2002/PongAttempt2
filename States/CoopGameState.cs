@@ -18,7 +18,7 @@ namespace Pong.States
         public const float playerOffset = 100f;
         private int lives = 3;
         private int score = 0;
-        public CoopGameState(PongGame game, ContentManager content) : base(game, content)
+        public CoopGameState(PongGame game) : base(game)
         {
             ball = new Ball(PongGame.screenSize / 2, Vector2.UnitX);
             ball.Reset();
@@ -62,7 +62,7 @@ namespace Pong.States
                 lives--;
                 if (lives == 0)
                 {
-                    game.SwitchState(new CoopGameOverState(game, content, score));
+                    game.SwitchState(new CoopGameOverState(game, score));
                     return;
                 }
                 Reset();

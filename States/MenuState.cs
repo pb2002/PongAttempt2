@@ -17,7 +17,7 @@ namespace Pong.States
         private Button difficultyButton;
 
         private readonly string[] difficultyNames = {"easy", "normal", "hard", "impossible"};
-        public MenuState(PongGame game, ContentManager content) : base(game, content)
+        public MenuState(PongGame game) : base(game)
         {
             titleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, -50), Vector2.Zero, "PONG", Renderer.titleColor, Assets.titleFont);
             subtitleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 50), Vector2.Zero, "By Pepijn & Tigo", Renderer.subtitleColor, Assets.subtitleFont);
@@ -42,16 +42,16 @@ namespace Pong.States
             difficultyButton.Update(dt);
             
             if (onePlayerButton.IsPressed)
-                game.SwitchState(new CompetitiveGameState(game, content, GameMode.OnePlayer));
+                game.SwitchState(new CompetitiveGameState(game, GameMode.OnePlayer));
             
             if (twoPlayerButton.IsPressed)
-                game.SwitchState(new CompetitiveGameState(game, content, GameMode.TwoPlayer));
+                game.SwitchState(new CompetitiveGameState(game, GameMode.TwoPlayer));
             
             if (cpuBattleButton.IsPressed)
-                game.SwitchState(new CompetitiveGameState(game, content, GameMode.CPUBattle));
+                game.SwitchState(new CompetitiveGameState(game, GameMode.CPUBattle));
             
             if (coopButton.IsPressed)
-                game.SwitchState(new CoopGameState(game, content));
+                game.SwitchState(new CoopGameState(game));
 
             if (difficultyButton.IsPressed)
             {

@@ -41,7 +41,7 @@ namespace Pong
             // TODO: Add your initialization logic here
 
             base.Initialize();
-            currentState = new MenuState(this, Content);
+            currentState = new MenuState(this);
         }
 
         protected override void LoadContent()
