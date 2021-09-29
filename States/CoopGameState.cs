@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Pong.States
 {
+    // TODO: this contains a lot of duplicate code, need to get rid of it
     public class CoopGameState : State
     {
         private Player player1;
@@ -19,6 +21,9 @@ namespace Pong.States
         private int lives = 3;
         private int score = 0;
         
+        private AudioClip playerHitSFX;
+        private AudioClip wallHitSFX;
+
         public CoopGameState(PongGame game, ContentManager content) : base(game, content)
         {
             ball = new Ball(PongGame.screenSize / 2, Vector2.UnitX);
@@ -37,6 +42,9 @@ namespace Pong.States
             
             player1.sprite = content.Load<Texture2D>("player");
             player2.sprite = player1.sprite;
+            
+            playerHitSFX = new AudioClip(content.Load<SoundEffect>("player hit"));
+            wallHitSFX = new AudioClip(content.Load<SoundEffect>("wall hit"));
         }
         private void Reset()
         {
@@ -58,11 +66,13 @@ namespace Pong.States
                 player1.IncreaseDifficulty();
                 player2.IncreaseDifficulty();
                 score++;
+                
+                playerHitSFX.Play();
             }
 
             if (ball.CheckWallCollision())
             {
-                
+                wallHitSFX.Play();
             }
             
             if (ball.position.X < 0 || ball.position.X > PongGame.screenSize.X)

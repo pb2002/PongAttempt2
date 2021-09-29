@@ -25,10 +25,12 @@ namespace Pong.States
         {
             titleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, -50), Vector2.Zero, "PONG", Renderer.titleColor);
             subtitleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 50), Vector2.Zero, "By Pepijn & Tigo", Renderer.subtitleColor);
+            
             onePlayerButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 130), new Vector2(360, 48), "PLAYER VS CPU");
             twoPlayerButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 190), new Vector2(380, 48), "PLAYER VS PLAYER");
             coopButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 250), new Vector2(260, 48), "COOP MODE");
             cpuBattleButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 310), new Vector2(300, 48), "CPU VS CPU");
+            
             difficultyButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 400), new Vector2(500, 48),
                 $"AI difficulty: {difficultyNames[Prefs.difficulty]}");
         }
@@ -36,12 +38,15 @@ namespace Pong.States
         {
             titleFont = content.Load<SpriteFont>("titleFont");
             subtitleFont = content.Load<SpriteFont>("subtitleFont");
+            
             titleLabel.font = titleFont;
             subtitleLabel.font = subtitleFont;
+            
             onePlayerButton.font = subtitleFont;
             twoPlayerButton.font = subtitleFont;
             coopButton.font = subtitleFont;
             cpuBattleButton.font = subtitleFont;
+            
             difficultyButton.font = subtitleFont;
         }
 

@@ -49,6 +49,12 @@
 /processorParam:TextureFormat=Color
 /build:heart.png
 
+#begin player hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:player hit.wav
+
 #begin player.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -81,4 +87,10 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:titleFont.spritefont
+
+#begin wall hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:wall hit.wav
 

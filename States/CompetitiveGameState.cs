@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -18,6 +19,9 @@ namespace Pong.States
 
         private LifeCounter player1LifeCounter;
         private LifeCounter player2LifeCounter;
+        
+        private AudioClip playerHitSFX;
+        private AudioClip wallHitSFX;
 
         private GameMode gameMode;
         public CompetitiveGameState(PongGame game, ContentManager content, GameMode gameMode) : base(game, content)
@@ -46,6 +50,9 @@ namespace Pong.States
             player2.sprite = player1.sprite;
             player1LifeCounter.sprite = content.Load<Texture2D>("heart");
             player2LifeCounter.sprite = player1LifeCounter.sprite;
+
+            playerHitSFX = new AudioClip(content.Load<SoundEffect>("player hit"));
+            wallHitSFX = new AudioClip(content.Load<SoundEffect>("wall hit"));
         }
         private void Reset()
         {
@@ -66,11 +73,12 @@ namespace Pong.States
                 ball.speed *= 1.02f;
                 player1.IncreaseDifficulty();
                 player2.IncreaseDifficulty();
+                playerHitSFX.Play();
             }
 
             if (ball.CheckWallCollision())
             {
-                
+                wallHitSFX.Play();
             }
             
             if (ball.position.X < 0)
