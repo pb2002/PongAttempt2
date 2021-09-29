@@ -7,10 +7,6 @@ namespace Pong.States
 {
     public class MenuState : State
     {
-
-        private SpriteFont titleFont;
-        private SpriteFont subtitleFont;
-
         private Label titleLabel;
         private Label subtitleLabel;
 
@@ -23,31 +19,16 @@ namespace Pong.States
         private readonly string[] difficultyNames = {"easy", "normal", "hard", "impossible"};
         public MenuState(PongGame game, ContentManager content) : base(game, content)
         {
-            titleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, -50), Vector2.Zero, "PONG", Renderer.titleColor);
-            subtitleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 50), Vector2.Zero, "By Pepijn & Tigo", Renderer.subtitleColor);
+            titleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, -50), Vector2.Zero, "PONG", Renderer.titleColor, Assets.titleFont);
+            subtitleLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 50), Vector2.Zero, "By Pepijn & Tigo", Renderer.subtitleColor, Assets.subtitleFont);
             
-            onePlayerButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 130), new Vector2(360, 48), "PLAYER VS CPU");
-            twoPlayerButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 190), new Vector2(380, 48), "PLAYER VS PLAYER");
-            coopButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 250), new Vector2(260, 48), "COOP MODE");
-            cpuBattleButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 310), new Vector2(300, 48), "CPU VS CPU");
+            onePlayerButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 130), new Vector2(360, 48), "PLAYER VS CPU", Assets.subtitleFont);
+            twoPlayerButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 190), new Vector2(380, 48), "PLAYER VS PLAYER", Assets.subtitleFont);
+            coopButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 250), new Vector2(260, 48), "COOP MODE", Assets.subtitleFont);
+            cpuBattleButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 310), new Vector2(300, 48), "CPU VS CPU", Assets.subtitleFont);
             
             difficultyButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 400), new Vector2(500, 48),
-                $"AI difficulty: {difficultyNames[Prefs.difficulty]}");
-        }
-        public override void LoadContent()
-        {
-            titleFont = content.Load<SpriteFont>("titleFont");
-            subtitleFont = content.Load<SpriteFont>("subtitleFont");
-            
-            titleLabel.font = titleFont;
-            subtitleLabel.font = subtitleFont;
-            
-            onePlayerButton.font = subtitleFont;
-            twoPlayerButton.font = subtitleFont;
-            coopButton.font = subtitleFont;
-            cpuBattleButton.font = subtitleFont;
-            
-            difficultyButton.font = subtitleFont;
+                $"AI difficulty: {difficultyNames[Prefs.difficulty]}", Assets.subtitleFont);
         }
 
         public override void Update(GameTime gameTime)

@@ -8,9 +8,6 @@ namespace Pong.States
     public class CoopGameOverState : State
     {
 
-        private SpriteFont titleFont;
-        private SpriteFont subtitleFont;
-        
         private Label titleLabel;
         private Label resultLabel;
         private Button continueButton;
@@ -20,19 +17,9 @@ namespace Pong.States
         public CoopGameOverState(PongGame game, ContentManager content, int score) : base(game, content)
         {
             this.score = score;
-            titleLabel = new Label(PongGame.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor);
-            resultLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 120), Vector2.Zero, $"score: {score}", Renderer.subtitleColor);
-            continueButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), "CONTINUE");
-        }
-
-        public override void LoadContent()
-        {
-            titleFont = content.Load<SpriteFont>("titleFont");
-            subtitleFont = content.Load<SpriteFont>("subtitleFont");
-            
-            titleLabel.font = titleFont;
-            resultLabel.font = subtitleFont;
-            continueButton.font = subtitleFont;
+            titleLabel = new Label(PongGame.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor, Assets.titleFont);
+            resultLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 120), Vector2.Zero, $"score: {score}", Renderer.subtitleColor, Assets.subtitleFont);
+            continueButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), "CONTINUE", Assets.subtitleFont);
         }
 
         public override void Update(GameTime gameTime)

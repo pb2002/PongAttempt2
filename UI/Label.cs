@@ -8,10 +8,11 @@ namespace Pong
         public SpriteFont font;
         public string text;
         public Color color;
-        public Label(Vector2 position, Vector2 size, string text, Color color) : base(position, size)
+        public Label(Vector2 position, Vector2 size, string text, Color color, SpriteFont font) : base(position, size)
         {
             this.text = text;
             this.color = color;
+            this.font = font;
         }
         public void Draw()
         {

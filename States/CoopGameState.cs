@@ -12,18 +12,12 @@ namespace Pong.States
         private Player player2;
         private Ball ball;
         
-        private Collectible collectible;
-        
         private LifeCounter lifeCounter;
         
         
         public const float playerOffset = 100f;
         private int lives = 3;
         private int score = 0;
-        
-        private AudioClip playerHitSFX;
-        private AudioClip wallHitSFX;
-
         public CoopGameState(PongGame game, ContentManager content) : base(game, content)
         {
             ball = new Ball(PongGame.screenSize / 2, Vector2.UnitX);
@@ -33,18 +27,6 @@ namespace Pong.States
             player2 = new Player(1, new Vector2(PongGame.screenSize.X - playerOffset, PongGame.screenSize.Y / 2), -Vector2.UnitX);
 
             lifeCounter = new LifeCounter(PongGame.screenSize / 2, 16);
-        }
-
-        public override void LoadContent()
-        {
-            ball.sprite = content.Load<Texture2D>("ball");
-            lifeCounter.sprite = content.Load<Texture2D>("heart");
-            
-            player1.sprite = content.Load<Texture2D>("player");
-            player2.sprite = player1.sprite;
-            
-            playerHitSFX = new AudioClip(content.Load<SoundEffect>("player hit"));
-            wallHitSFX = new AudioClip(content.Load<SoundEffect>("wall hit"));
         }
         private void Reset()
         {
@@ -67,12 +49,12 @@ namespace Pong.States
                 player2.IncreaseDifficulty();
                 score++;
                 
-                playerHitSFX.Play();
+                Assets.playerHitSFX.Play();
             }
 
             if (ball.CheckWallCollision())
             {
-                wallHitSFX.Play();
+                Assets.wallHitSFX.Play();
             }
             
             if (ball.position.X < 0 || ball.position.X > PongGame.screenSize.X)

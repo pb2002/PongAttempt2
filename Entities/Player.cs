@@ -18,6 +18,7 @@ namespace Pong
         {
             this.playerId = playerId;
             this.normal = normal;
+            this.sprite = Assets.playerTexture;
             speed = baseSpeed;
         }
 

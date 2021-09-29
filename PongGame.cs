@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Pong.States;
@@ -12,8 +13,10 @@ namespace Pong
         private SpriteBatch _spriteBatch;
 
         public static Vector2 screenSize = new Vector2(1600, 900);
-        public Texture2D fade;
+
         public Timer fadeTimer = 0.5f;
+        
+        
         private State currentState;
         private State nextState;
 
@@ -28,7 +31,6 @@ namespace Pong
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            IsFixedTimeStep = false;
 
             _graphics.PreferredBackBufferWidth = (int)screenSize.X;
             _graphics.PreferredBackBufferHeight = (int)screenSize.Y;
@@ -38,17 +40,24 @@ namespace Pong
         {
             // TODO: Add your initialization logic here
 
-            
-            currentState = new MenuState(this, Content);
             base.Initialize();
+            currentState = new MenuState(this, Content);
         }
 
         protected override void LoadContent()
         {
             Renderer.instance.spriteBatch = new SpriteBatch(GraphicsDevice);
-            fade = Content.Load<Texture2D>("fade");
             
-            currentState.LoadContent();
+            Assets.playerTexture = Content.Load<Texture2D>("sprites/player");
+            Assets.ballTexture = Content.Load<Texture2D>("sprites/ball");
+            Assets.heartTexture = Content.Load<Texture2D>("sprites/heart");
+            Assets.fadeTexture = Content.Load<Texture2D>("sprites/fade");
+
+            Assets.titleFont = Content.Load<SpriteFont>("fonts/titleFont");
+            Assets.subtitleFont = Content.Load<SpriteFont>("fonts/subtitleFont");
+
+            Assets.playerHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/player hit"));
+            Assets.wallHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/wall hit"));
         }
 
 
@@ -61,9 +70,8 @@ namespace Pong
             if (nextState != null)
             {
                 if (fadeTimer) return;
-                fadeTimer.Reset();
                 currentState = nextState;
-                currentState.LoadContent();
+                fadeTimer.Reset();
                 nextState = null;
             }
             else
@@ -86,10 +94,10 @@ namespace Pong
                 float alpha = nextState == null 
                     ? fadeTimer.Time / fadeTimer.MaxTime 
                     : 1f - fadeTimer.Time / fadeTimer.MaxTime;
-
-                Renderer.instance.DrawSpriteScaled(fade, Vector2.Zero, screenSize, Color.White * alpha);
-            }
+                Renderer.instance.DrawSpriteScaled(Assets.fadeTexture, Vector2.Zero, screenSize, Color.White * alpha);
                 
+            }
+            Renderer.instance.DrawText(Assets.subtitleFont, $"{fadeTimer.Time:0.00}", new Vector2(100, 100), Color.Black);    
             Renderer.instance.End();
             
             base.Draw(gameTime);

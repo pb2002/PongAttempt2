@@ -11,6 +11,7 @@ namespace Pong
         public LifeCounter(Vector2 position, float spacing) : base(position)
         {
             this.spacing = spacing;
+            this.sprite = Assets.heartTexture;
         }
 
         public void Draw(int lives)

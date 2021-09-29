@@ -19,9 +19,7 @@ namespace Pong.States
 
         private LifeCounter player1LifeCounter;
         private LifeCounter player2LifeCounter;
-        
-        private AudioClip playerHitSFX;
-        private AudioClip wallHitSFX;
+
 
         private GameMode gameMode;
         public CompetitiveGameState(PongGame game, ContentManager content, GameMode gameMode) : base(game, content)
@@ -42,18 +40,6 @@ namespace Pong.States
             player1LifeCounter = new LifeCounter(player1.position + 256 * Vector2.UnitX, 16);
             player2LifeCounter = new LifeCounter(player2.position - 256 * Vector2.UnitX, 16);
         }
-
-        public override void LoadContent()
-        {
-            player1.sprite = content.Load<Texture2D>("player");
-            ball.sprite = content.Load<Texture2D>("ball");
-            player2.sprite = player1.sprite;
-            player1LifeCounter.sprite = content.Load<Texture2D>("heart");
-            player2LifeCounter.sprite = player1LifeCounter.sprite;
-
-            playerHitSFX = new AudioClip(content.Load<SoundEffect>("player hit"));
-            wallHitSFX = new AudioClip(content.Load<SoundEffect>("wall hit"));
-        }
         private void Reset()
         {
             player1.Reset();
@@ -73,12 +59,12 @@ namespace Pong.States
                 ball.speed *= 1.02f;
                 player1.IncreaseDifficulty();
                 player2.IncreaseDifficulty();
-                playerHitSFX.Play();
+                Assets.playerHitSFX.Play();
             }
 
             if (ball.CheckWallCollision())
             {
-                wallHitSFX.Play();
+                Assets.wallHitSFX.Play();
             }
             
             if (ball.position.X < 0)

@@ -16,6 +16,7 @@ namespace Pong
         {
             this.direction = direction;
             this.speed = baseSpeed;
+            this.sprite = Assets.ballTexture;
         }
 
         public void Move(float dt)
@@ -37,9 +38,8 @@ namespace Pong
         public bool CheckPlayerCollision(Player player)
         {
             Rectangle pBounds = player.Bounds;
-            var tangent = new Vector2(-player.normal.Y, player.normal.X);
-            
             if (!Bounds.Intersects(pBounds)) return false;
+            var tangent = new Vector2(-player.normal.Y, player.normal.X);
             
             // The difference in height.
             // Equal to the component parallel to the player tangent of vector between the player and ball center.

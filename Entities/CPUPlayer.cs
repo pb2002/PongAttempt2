@@ -10,7 +10,6 @@ namespace Pong
         private Ball ball;
         private Vector2 renderPosition;
         private float seed;
-
         public CPUPlayer(int playerId, Vector2 position, Vector2 normal, Ball ball) : base(playerId, position, normal)
         {
             this.ball = ball;
@@ -36,16 +35,15 @@ namespace Pong
             float deltaY = ball.position.Y - position.Y + offset;
             
             // scales down fine adjustment speed based on the height difference
-            float speedScale = deltaY / 10;
-            
+            float speedScale = deltaY / 30;
             // make large adjustments when height difference is larger than or opposing the dy vector of the ball
-            if (deltaY > ball.speed * ball.direction.Y * dt)
+            if (deltaY > 30)
                 position.Y += speed * dt;
-            else if (deltaY < -ball.speed * ball.direction.Y * dt)
+            else if (deltaY < -30)
                 position.Y -= speed * dt;
             // otherwise make fine adjustments
             else
-                position.Y += MathHelper.Clamp(ball.direction.Y * ball.speed * speedScale, -speed, speed) * dt;
+                position.Y += MathHelper.Clamp(MathF.Abs(ball.direction.Y) * ball.speed * speedScale, -speed, speed) * dt;
             // smooth out rendered position to remove jitter using accumulative lerp
             renderPosition = Vector2.Lerp(renderPosition, position, 30 * dt);
             ClampYPosition();
