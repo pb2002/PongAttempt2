@@ -58,6 +58,7 @@ namespace Pong
 
             Assets.playerHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/player hit"));
             Assets.wallHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/wall hit"));
+            Assets.music = new AudioClip(Content.Load<SoundEffect>("music/music"));
         }
 
 

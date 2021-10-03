@@ -14,6 +14,7 @@ namespace Pong
                 
         public static AudioClip playerHitSFX;
         public static AudioClip wallHitSFX;
-        
+        public static AudioClip music;
+
     }
 }
