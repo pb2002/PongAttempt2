@@ -5,32 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/States/HowToPlayState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AudioClip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AudioClip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/music/music-top-layer.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Content/music/music-top-layer.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/sfx/player hit.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Content/sfx/player-hit.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/sfx/wall hit.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Content/sfx/wall-hit.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/AIPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/AIPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Ball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/CPUPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/AIPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/LifeCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/LifeCounter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PongGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PongGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Prefs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameOverState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameOverState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/States/InGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/InGameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/HowToPlayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/HowToPlayState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/MenuState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/State.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Button.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Label.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Label.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/UIElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UIElement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +97,7 @@
       <workItem from="1632932686232" duration="306000" />
       <workItem from="1633255246058" duration="1377000" />
       <workItem from="1633258061933" duration="8236000" />
-      <workItem from="1633266396409" duration="24629000" />
+      <workItem from="1633266396409" duration="26089000" />
     </task>
     <task id="LOCAL-00001" summary="afwefa">
       <created>1632310929911</created>
@@ -256,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633272705718</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added how to play&#10;lots of refactoring">
+      <created>1633294882537</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1633294882537</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +289,7 @@
     <MESSAGE value="screenSize now stored in Prefs class&#10;ball speed multiplier no longer hardcoded (bug)&#10;added comments&#10;added continue button to coop game over screen&#10;coop score now visible in game&#10;added summary descriptions" />
     <MESSAGE value="music + click sound effect&#10;dark mode&#10;fixed ball stuck in wall glitch" />
     <MESSAGE value="removed unnecessary usings" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary usings" />
+    <MESSAGE value="added how to play&#10;lots of refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="added how to play&#10;lots of refactoring" />
   </component>
 </project>

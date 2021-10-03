@@ -37,18 +37,18 @@ namespace Pong
             // (target hit point = player position + offset)
             float deltaY = ball.position.Y - position.Y + offset;
             
-            // scales down fine adjustment speed based on the height difference
-            float speedScale = deltaY / (speed * dt);
+            // speed based on the height difference
+            float scaledSpeed = deltaY / dt;
+            
             // make large adjustments when height difference is larger than or opposing the dy vector of the ball
             if (deltaY > speed * dt)
                 // just move at the maximum speed
                 position.Y += speed * dt;
             else if (deltaY < - speed * dt)
                 position.Y -= speed * dt;
-            // otherwise make fine adjustments (scale down the speed based on the distance between the ball and the 
-            // desired hit spot)
+            // otherwise make fine adjustments using scaled speed
             else
-                position.Y += MathHelper.Clamp(speed * speedScale, -speed, speed) * dt;
+                position.Y += scaledSpeed * dt;
             // smooth out rendered position to remove jitter using accumulative lerp
             renderPosition = Vector2.Lerp(renderPosition, position, 30 * dt);
             ClampYPosition();
@@ -69,8 +69,7 @@ namespace Pong
 
         public override void Draw()
         {
-            Renderer.Instance.DrawSpriteCentered(sprite, renderPosition, 
-                Renderer.playerColors[playerId], playerId == 1);
+            Renderer.Instance.DrawSpriteCentered(sprite, renderPosition, Renderer.playerColors[playerId]);
         }
     }
 }

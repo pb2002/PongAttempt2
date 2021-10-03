@@ -5,18 +5,18 @@ namespace Pong.States
 {
     public class MenuState : State
     {
-        private readonly Label titleLabel;
-        private readonly Label subtitleLabel;
+        private Label titleLabel;
+        private Label subtitleLabel;
 
         // we did not want to use an array here, because it would make things way to complicated and would be beyond the
         // scope of a simple pong project.
 
-        private readonly Button onePlayerButton;
-        private readonly Button twoPlayerButton;
-        private readonly Button aiBattleButton;
-        private readonly Button difficultyButton;
-        private readonly Button darkModeButton;
-        private readonly Button howToPlayButton;
+        private Button onePlayerButton;
+        private Button twoPlayerButton;
+        private Button aiBattleButton;
+        private Button difficultyButton;
+        private Button darkModeButton;
+        private Button howToPlayButton;
 
         private readonly string[] difficultyNames = { "EASY", "NORMAL", "HARD", "IMPOSSIBLE" };
 

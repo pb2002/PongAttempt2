@@ -64,11 +64,16 @@ namespace Pong
             // check for collisions
             if (position.Y < Size.Y / 2f)
             {
+                // top wall
+                
+                // this works better than multiplying by -1 because collisions sink doesn't get resolved
+                // which means multiple collisions may occur causing the ball to get stuck in the wall.
                 direction.Y = 1 * MathF.Abs(direction.Y);
                 return true;
             }
             if (position.Y > Prefs.screenSize.Y - Size.Y / 2f)
             {
+                // bottom wall
                 direction.Y = -1 * MathF.Abs(direction.Y);
                 return true;
             }

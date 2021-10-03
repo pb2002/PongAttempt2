@@ -12,7 +12,7 @@ namespace Pong.States
     {
         protected event Action<GameTime> OnUpdate;
         protected event Action<GameTime> OnDraw;
-        protected readonly PongGame game;
+        protected PongGame game;
         protected State(PongGame game)
         {
             this.game = game;

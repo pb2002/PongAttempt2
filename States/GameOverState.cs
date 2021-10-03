@@ -5,9 +5,9 @@ namespace Pong.States
     
     public class GameOverState : State
     {
-        private readonly Label titleLabel;
-        private readonly Label resultLabel;
-        private readonly Button continueButton;
+        private Label titleLabel;
+        private Label resultLabel;
+        private Button continueButton;
         
         private int winningPlayer;
         public GameOverState(PongGame game, int winningPlayer) : base(game)

@@ -17,7 +17,7 @@ namespace Pong.States
             titleLabel = new Label(
                 new Vector2(screenCenter.X,50),
                 Vector2.Zero,
-                "HOW TO PLAY", 
+                "HOW TO PLAY",
                 Renderer.titleColor,
                 Assets.subtitleFont,
                 Align.TopCenter);
