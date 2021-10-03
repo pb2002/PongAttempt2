@@ -7,7 +7,6 @@ namespace Pong
     {
         private static Random random = new Random();
         private static Color ballColor = new Color(128, 144, 160);
-        public const float baseSpeed = 300f;
         
         public Vector2 direction;
         public float speed;
@@ -15,7 +14,7 @@ namespace Pong
         public Ball(Vector2 position, Vector2 direction) : base(position)
         {
             this.direction = direction;
-            this.speed = baseSpeed;
+            this.speed = Prefs.baseSpeed;
             this.sprite = Assets.ballTexture;
         }
 
@@ -26,19 +25,24 @@ namespace Pong
 
         public void Reset()
         {
-            speed = baseSpeed;
+            speed = Prefs.baseSpeed;
             
+            // randomly select left or right
             float rx = random.Next(0,2) == 1 ? -1 : 1;
+            // randomly select a slope
             float ry = (float) random.NextDouble() * 1.5f;
+            // construct and normalize vector
             direction = new Vector2(rx, ry);
             direction.Normalize();
             
-            position = PongGame.screenSize / 2f;
+            position = Prefs.screenSize / 2f;
         }
         public bool CheckPlayerCollision(Player player)
         {
             Rectangle pBounds = player.Bounds;
+            // check for collision
             if (!Bounds.Intersects(pBounds)) return false;
+            
             var tangent = new Vector2(-player.normal.Y, player.normal.X);
             
             // The difference in height.
@@ -57,14 +61,16 @@ namespace Pong
 
         public bool CheckWallCollision()
         {
-            if (!(position.Y < Size.Y / 2f) && !(position.Y > PongGame.screenSize.Y - Size.Y / 2f)) return false;
+            // check for collisions
+            if (!(position.Y < Size.Y / 2f) && !(position.Y > Prefs.screenSize.Y - Size.Y / 2f)) return false;
             
+            // reverse Y direction
             direction.Y *= -1;
             return true;
         }
         public void Draw()
         {
-            Renderer.instance.DrawSpriteCentered(sprite,position, ballColor);
+            Renderer.Instance.DrawSpriteCentered(sprite,position, ballColor);
         }
     }
 }

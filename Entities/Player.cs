@@ -7,8 +7,7 @@ namespace Pong
     public class Player : Entity
     {
         protected static readonly Color[] playerColors = { new Color(255, 192, 64), new Color(64, 192, 240) };
-        public const float baseSpeed = 300f;
-        
+
         public int playerId;
         public Vector2 normal;
         protected float speed;
@@ -19,12 +18,12 @@ namespace Pong
             this.playerId = playerId;
             this.normal = normal;
             this.sprite = Assets.playerTexture;
-            speed = baseSpeed;
+            speed = Prefs.baseSpeed;
         }
 
         public virtual void Reset()
         {
-            speed = baseSpeed;
+            speed = Prefs.baseSpeed;
         }
 
         public virtual void IncreaseDifficulty()
@@ -33,17 +32,17 @@ namespace Pong
         }
         public virtual void Move(float dt)
         {
-            position.Y += InputHandler.instance.PlayerMovementInput[playerId] * speed * dt;
+            position.Y += InputHandler.Instance.PlayerMovementInput[playerId] * speed * dt;
             ClampYPosition();
         }
 
         protected void ClampYPosition()
         {
-            position.Y = MathHelper.Clamp(position.Y, sprite.Height / 2f, PongGame.screenSize.Y - sprite.Height / 2f);
+            position.Y = MathHelper.Clamp(position.Y, sprite.Height / 2f, Prefs.screenSize.Y - sprite.Height / 2f);
         }
         public virtual void Draw()
         {
-            Renderer.instance.DrawSpriteCentered(sprite, position, playerColors[playerId], playerId == 1);
+            Renderer.Instance.DrawSpriteCentered(sprite, position, playerColors[playerId], playerId == 1);
         }
     }
 }
