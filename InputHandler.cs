@@ -5,6 +5,9 @@ namespace Pong
 {
     public class InputHandler : Singleton<InputHandler>
     {
+        // mapping LUTs
+        // mapping indexing is as follows: Up, Down, Confirm, Exit
+        // only player 1 has confirm and exit mappings
         public Buttons[][] ControllerMapping { get; private set; } =
         {
             new[]{Buttons.LeftThumbstickUp, Buttons.LeftThumbstickDown, Buttons.A, Buttons.Back},
@@ -16,24 +19,32 @@ namespace Pong
             new[] {Keys.W, Keys.S, Keys.Enter, Keys.Escape},
             new[] {Keys.Up, Keys.Down}
         };
-
+        
+        // input player movement. -1 is up, 1 is down, 0 is idle.
         public int[] PlayerMovementInput { get; private set; } = new[] {0, 0};
         
+        // Confirm input. confirmDown is used to make sure Confirm is only true for the first frame.
         private bool confirmDown = false;
         public bool Confirm { get; private set; } = false;
         public bool Exit { get; private set; } = false;
-
+        
         public Vector2 MousePosition { get; private set; }
 
+        // Idem
         private bool leftMouseDown = false;
         public bool LeftMouse { get; private set; }
         
+        /// <summary>
+        /// Polls input and updates input state variables accordingly.
+        /// </summary>
         public void UpdateInput()
         {
+            // Get input device states
             KeyboardState keyboardState = Keyboard.GetState();
             GamePadState gamePadState = GamePad.GetState(0);
             MouseState mouseState = Mouse.GetState();
-            // Player Movement Input
+            
+            // Get Player Movement Input
             for (int i = 0; i < PlayerMovementInput.Length; i++)
             {
                 var moveInput = 0;
@@ -51,12 +62,13 @@ namespace Pong
             // Exit
             Exit = keyboardState.IsKeyDown(KeyboardMapping[0][3]) ||
                       gamePadState.IsButtonDown(ControllerMapping[0][3]);
-            
+            // Mouse position
             MousePosition = mouseState.Position.ToVector2();
+            
+            // Left Mouse
             bool leftMouseRaw = mouseState.LeftButton == ButtonState.Pressed;
             LeftMouse = leftMouseRaw && !leftMouseDown;
             leftMouseDown = leftMouseRaw;
-
         }
     }
 }

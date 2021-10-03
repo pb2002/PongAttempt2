@@ -18,16 +18,16 @@ namespace Pong
 
         public void Update(float dt)
         {
-            Vector2 mousePos = InputHandler.instance.MousePosition;
+            Vector2 mousePos = InputHandler.Instance.MousePosition;
             IsHover = Bounds.Contains(mousePos);
-            IsPressed = InputHandler.instance.LeftMouse && IsHover;
+            IsPressed = InputHandler.Instance.LeftMouse && IsHover;
             currentColor = Color.Lerp(currentColor, IsHover ? Renderer.buttonHoverColor : Renderer.buttonColor,
                 10 * dt);
         }
         public void Draw()
         {
             
-            Renderer.instance.DrawText(font, text, position, currentColor);
+            Renderer.Instance.DrawText(font, text, position, currentColor);
         }
     }
 }

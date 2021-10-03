@@ -9,20 +9,19 @@ namespace Pong
 {
     public class PongGame : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private GraphicsDeviceManager _graphics;        
 
-        public static Vector2 screenSize = new Vector2(1600, 900);
+        // Fade effect timer
+        public Timer fadeTimer = new Timer(0.5f);
 
-        public Timer fadeTimer = 0.5f;
-        
-        
         private State currentState;
         private State nextState;
 
         public void SwitchState(State state)
         {
+            // set the next state
             nextState = state;
+            // reset the timer to start fade effect
             fadeTimer.Reset();
         }
         
@@ -31,23 +30,24 @@ namespace Pong
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
-            _graphics.PreferredBackBufferWidth = (int)screenSize.X;
-            _graphics.PreferredBackBufferHeight = (int)screenSize.Y;
+            
+            // set screen resolution
+            _graphics.PreferredBackBufferWidth = (int)Prefs.screenSize.X;
+            _graphics.PreferredBackBufferHeight = (int)Prefs.screenSize.Y;
         }
         
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
+            // start at menu state
             currentState = new MenuState(this);
         }
 
         protected override void LoadContent()
         {
-            Renderer.instance.spriteBatch = new SpriteBatch(GraphicsDevice);
+            Renderer.Instance.spriteBatch = new SpriteBatch(GraphicsDevice);
             
+            // Load all assets
             Assets.playerTexture = Content.Load<Texture2D>("sprites/player");
             Assets.ballTexture = Content.Load<Texture2D>("sprites/ball");
             Assets.heartTexture = Content.Load<Texture2D>("sprites/heart");
@@ -63,23 +63,29 @@ namespace Pong
 
         protected override void Update(GameTime gameTime)
         {
+            // update the timer (gameTime.ElapsedGameTime.TotalSeconds = time of last frame)
             fadeTimer.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
             // Update Input
-            InputHandler.instance.UpdateInput();
+            InputHandler.Instance.UpdateInput();
 
+            // If there is a state to be loaded
             if (nextState != null)
             {
+                // wait for the fade effect to finish
                 if (fadeTimer) return;
+                // update the current state
                 currentState = nextState;
+                // reset the timer to start fade in effect
                 fadeTimer.Reset();
                 nextState = null;
             }
             else
             {
+                // update the current state
+                // don't update during the fade out effect so the game pauses when switching states
                 currentState.Update(gameTime);
             }
-            
-            
+
             base.Update(gameTime);
         }
 
@@ -87,18 +93,24 @@ namespace Pong
         {
             GraphicsDevice.Clear(Color.White);
 
-            Renderer.instance.Begin();
+            Renderer.Instance.Begin();
             currentState.Draw(gameTime);
+            // fade effect (check if the fade timer is running)
             if (fadeTimer)
             {
+                // if the next state is null, we have changed states already, so we should
+                // apply a fade out effect.
+                // if not, we should apply a fade in effect instead.
                 float alpha = nextState == null 
-                    ? fadeTimer.Time / fadeTimer.MaxTime 
+                    ? fadeTimer.Time / fadeTimer.MaxTime // divide by MaxTime to get a number between 0 and 1
                     : 1f - fadeTimer.Time / fadeTimer.MaxTime;
-                Renderer.instance.DrawSpriteScaled(Assets.fadeTexture, Vector2.Zero, screenSize, Color.White * alpha);
+                
+                // draw the fade rectangle with transparency
+                Renderer.Instance.DrawSpriteScaled(Assets.fadeTexture, Vector2.Zero, Prefs.screenSize, Color.White * alpha);
                 
             }
-            Renderer.instance.DrawText(Assets.subtitleFont, $"{fadeTimer.Time:0.00}", new Vector2(100, 100), Color.Black);    
-            Renderer.instance.End();
+            
+            Renderer.Instance.End();
             
             base.Draw(gameTime);
         }

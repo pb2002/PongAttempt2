@@ -16,7 +16,7 @@ namespace Pong
         }
         public void Draw()
         {
-            Renderer.instance.DrawText(font, text, position, color);
+            Renderer.Instance.DrawText(font, text, position, color);
         }
     }
 }

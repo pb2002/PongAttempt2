@@ -10,6 +10,7 @@ namespace Pong
         private Ball ball;
         private Vector2 renderPosition;
         private float seed;
+        
         public CPUPlayer(int playerId, Vector2 position, Vector2 normal, Ball ball) : base(playerId, position, normal)
         {
             this.ball = ball;
@@ -28,6 +29,7 @@ namespace Pong
             
             // generate a random offset based on the Y direction of the ball.
             float steepness = MathF.Abs(ball.direction.Y);
+            
             float offset = Bounds.Height * deviation * (Rand(steepness) - 0.5f);
             
             // calculate the height difference between the ball and the target hit point
@@ -35,15 +37,15 @@ namespace Pong
             float deltaY = ball.position.Y - position.Y + offset;
             
             // scales down fine adjustment speed based on the height difference
-            float speedScale = deltaY / 30;
+            float speedScale = deltaY / (speed * dt);
             // make large adjustments when height difference is larger than or opposing the dy vector of the ball
-            if (deltaY > 30)
+            if (deltaY > speed * dt)
                 position.Y += speed * dt;
-            else if (deltaY < -30)
+            else if (deltaY < - speed * dt)
                 position.Y -= speed * dt;
             // otherwise make fine adjustments
             else
-                position.Y += MathHelper.Clamp(MathF.Abs(ball.direction.Y) * ball.speed * speedScale, -speed, speed) * dt;
+                position.Y += MathHelper.Clamp(speed * speedScale, -speed, speed) * dt;
             // smooth out rendered position to remove jitter using accumulative lerp
             renderPosition = Vector2.Lerp(renderPosition, position, 30 * dt);
             ClampYPosition();
@@ -63,7 +65,7 @@ namespace Pong
 
         public override void Draw()
         {
-            Renderer.instance.DrawSpriteCentered(sprite, renderPosition, playerColors[playerId], playerId == 1);
+            Renderer.Instance.DrawSpriteCentered(sprite, renderPosition, playerColors[playerId], playerId == 1);
         }
     }
 }
