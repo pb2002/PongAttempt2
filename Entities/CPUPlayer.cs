@@ -53,6 +53,7 @@ namespace Pong
 
         public override void IncreaseDifficulty()
         {
+            // increase the hit deviation (makes the CPU more likely to miss)
             deviation *= Prefs.DeviationMultiplier;
             base.IncreaseDifficulty();
         }

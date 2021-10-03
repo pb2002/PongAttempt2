@@ -21,6 +21,7 @@ namespace Pong.States
                 $"player {winningPlayer+1} wins!", Renderer.subtitleColor, Assets.subtitleFont);
             continueButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), 
                 "CONTINUE", Assets.subtitleFont);
+            Assets.musicBaseLayer.FadeIn(4f);
         }
 
         public override void Update(GameTime gameTime)

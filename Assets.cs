@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace Pong
 {
@@ -11,10 +12,14 @@ namespace Pong
         
         public static SpriteFont titleFont;
         public static SpriteFont subtitleFont;
+        public static SpriteFont smallFont;
                 
         public static AudioClip playerHitSFX;
         public static AudioClip wallHitSFX;
-        public static AudioClip music;
+        public static AudioClip clickSFX;
+        
+        public static AudioClip musicBaseLayer;
+        public static AudioClip musicTopLayer;
 
     }
 }

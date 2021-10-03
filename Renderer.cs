@@ -21,12 +21,17 @@ namespace Pong
             titleColor = new Color(240, 174, 64),
             subtitleColor = new Color(255, 208, 80),
             buttonColor = new Color(160, 176, 192),
-            buttonHoverColor = new Color(80, 184, 255);
+            buttonHoverColor = new Color(80, 184, 255),
+            darkBG = new Color(24,28,32),
+            lightBG = new Color(255,255,255),
+            heartColor = new Color(255, 64, 128);
 
         public SpriteBatch spriteBatch;
+        public GraphicsDevice graphicsDevice;
         public void Begin() => spriteBatch.Begin();
         public void End() => spriteBatch.End();
-        
+        public bool darkMode = false;
+        public Color BGColor = lightBG;
         /// <summary>
         /// Draw a sprite at the given position with the given scale
         /// </summary>
@@ -34,6 +39,11 @@ namespace Pong
         /// <param name="position">The position of the top-left corner of the sprite</param>
         /// <param name="scale">The scale of the sprite</param>
         /// <param name="color">The color of the sprite</param>
+        public void DrawBG(float dt)
+        {
+            BGColor = Color.Lerp(BGColor, darkMode ? darkBG : lightBG, 20 * dt);
+            graphicsDevice.Clear(BGColor);
+        }
         public void DrawSpriteScaled(Texture2D sprite, Vector2 position, Vector2 scale, Color color)
         {
             spriteBatch.Draw(sprite, position, null, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.5f);

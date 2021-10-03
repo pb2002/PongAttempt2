@@ -13,10 +13,10 @@ namespace Pong.States
         private Button onePlayerButton;
         private Button twoPlayerButton;
         private Button cpuBattleButton;
-        private Button coopButton;
         private Button difficultyButton;
+        private Button darkModeButton;
 
-        private readonly string[] difficultyNames = {"easy", "normal", "hard", "impossible"};
+        private readonly string[] difficultyNames = {"EASY", "NORMAL", "HARD", "IMPOSSIBLE"};
         public MenuState(PongGame game) : base(game)
         {
             titleLabel = new Label(Prefs.screenSize / 2 + new Vector2(0, -50), Vector2.Zero, "PONG", Renderer.titleColor, Assets.titleFont);
@@ -24,39 +24,54 @@ namespace Pong.States
             
             onePlayerButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 130), new Vector2(360, 48), "PLAYER VS CPU", Assets.subtitleFont);
             twoPlayerButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 190), new Vector2(380, 48), "PLAYER VS PLAYER", Assets.subtitleFont);
-            coopButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 250), new Vector2(260, 48), "COOP MODE", Assets.subtitleFont);
-            cpuBattleButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 310), new Vector2(300, 48), "CPU VS CPU", Assets.subtitleFont);
+            cpuBattleButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 250), new Vector2(300, 48), "CPU VS CPU", Assets.subtitleFont);
             
-            difficultyButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 400), new Vector2(500, 48),
-                $"AI difficulty: {difficultyNames[Prefs.difficulty]}", Assets.subtitleFont);
+            difficultyButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 340), new Vector2(500, 48),
+                $"AI DIFFICULTY : {difficultyNames[Prefs.difficulty]}", Assets.smallFont); 
+            darkModeButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 380), new Vector2(300, 32), "DARK MODE : OFF", Assets.smallFont);
         }
 
         public override void Update(GameTime gameTime)
         {
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             
+            
             onePlayerButton.Update(dt);
             twoPlayerButton.Update(dt);
             cpuBattleButton.Update(dt);
-            coopButton.Update(dt);
             difficultyButton.Update(dt);
-            
+            darkModeButton.Update(dt);
+
             if (onePlayerButton.IsPressed)
-                game.SwitchState(new CompetitiveGameState(game, GameMode.OnePlayer));
-            
+            {
+                game.SwitchState(new InGameState(game, GameMode.OnePlayer));
+                Assets.musicBaseLayer.FadeOut(2f);
+            }
+
+
             if (twoPlayerButton.IsPressed)
-                game.SwitchState(new CompetitiveGameState(game, GameMode.TwoPlayer));
-            
+            {
+                game.SwitchState(new InGameState(game, GameMode.TwoPlayer));
+                Assets.musicBaseLayer.FadeOut(2f);
+            }
+
+
             if (cpuBattleButton.IsPressed)
-                game.SwitchState(new CompetitiveGameState(game, GameMode.CPUBattle));
-            
-            if (coopButton.IsPressed)
-                game.SwitchState(new CoopGameState(game));
+            {
+                game.SwitchState(new InGameState(game, GameMode.CPUBattle));
+                Assets.musicBaseLayer.FadeOut(2f);
+            }
 
             if (difficultyButton.IsPressed)
             {
                 Prefs.difficulty = (Prefs.difficulty + 1) % 4;
-                difficultyButton.text = $"AI difficulty: {difficultyNames[Prefs.difficulty]}";
+                difficultyButton.text = $"AI DIFFICULTY : {difficultyNames[Prefs.difficulty]}";
+            }
+
+            if (darkModeButton.IsPressed)
+            {
+                Renderer.Instance.darkMode = !Renderer.Instance.darkMode;
+                darkModeButton.text = $"DARK MODE : {(Renderer.Instance.darkMode ? "ON" : "OFF")}";
             }
             
             titleLabel.position = Prefs.screenSize / 2 
@@ -74,9 +89,10 @@ namespace Pong.States
             
             onePlayerButton.Draw();
             twoPlayerButton.Draw();
-            coopButton.Draw();
             cpuBattleButton.Draw();
             difficultyButton.Draw();
+            darkModeButton.Draw();
+            
         }
     }
 }

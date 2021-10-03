@@ -34,7 +34,7 @@ namespace Pong
             // construct and normalize vector
             direction = new Vector2(rx, ry);
             direction.Normalize();
-            
+            Assets.clickSFX.Play(volume: 0.5f);
             position = Prefs.screenSize / 2f;
         }
         public bool CheckPlayerCollision(Player player)
@@ -62,11 +62,19 @@ namespace Pong
         public bool CheckWallCollision()
         {
             // check for collisions
-            if (!(position.Y < Size.Y / 2f) && !(position.Y > Prefs.screenSize.Y - Size.Y / 2f)) return false;
-            
+            if (position.Y < Size.Y / 2f)
+            {
+                direction.Y = 1 * MathF.Abs(direction.Y);
+                return true;
+            }
+            if (position.Y > Prefs.screenSize.Y - Size.Y / 2f)
+            {
+                direction.Y = -1 * MathF.Abs(direction.Y);
+                return true;
+            }
+
             // reverse Y direction
-            direction.Y *= -1;
-            return true;
+            return false;
         }
         public void Draw()
         {

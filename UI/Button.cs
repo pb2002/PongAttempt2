@@ -21,6 +21,7 @@ namespace Pong
             Vector2 mousePos = InputHandler.Instance.MousePosition;
             IsHover = Bounds.Contains(mousePos);
             IsPressed = InputHandler.Instance.LeftMouse && IsHover;
+            if (IsPressed) Assets.clickSFX.Play(volume: 0.5f);
             currentColor = Color.Lerp(currentColor, IsHover ? Renderer.buttonHoverColor : Renderer.buttonColor,
                 10 * dt);
         }

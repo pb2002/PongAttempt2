@@ -5,10 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/music/music-2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/music/music-base-layer.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/music/music-base-layer.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/music/music-top-layer.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/music/music-top-layer.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/music/music.ogg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AudioClip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AudioClip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/fonts/scoreFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/fonts/smallFont.spritefont" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/fonts/titleFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/fonts/titleFont.spritefont" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/sfx/click.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Content/sfx/click.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Ball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/CPUPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/CPUPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PongAttempt2.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PongAttempt2.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PongGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PongGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prefs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Prefs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/CompetitiveGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/InGameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/CoopGameOverState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/CoopGameState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/GameOverState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameOverState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/States/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/MenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Button.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,30 +48,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/State.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Entity.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/CPUPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/CoopGameState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/CompetitiveGameState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/MenuState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/GameOverState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/CPUPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/CoopGameState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/CompetitiveGameState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb20f9ae245446549b5593ed09a352f5ea000/c2/b1461938/Game.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/CPUPlayer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Entity.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Ball.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/GameOverState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Entity.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/CoopGameOverState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb20f9ae245446549b5593ed09a352f5ea000/b5/c26cde43/ContentManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb20f9ae245446549b5593ed09a352f5ea000/60/bbf795f8/ContentReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb20f9ae245446549b5593ed09a352f5ea000/0d/1667b913/SpriteBatch.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yUcxWAvMEGKYrypE1eRW06Ry78" />
   <component name="ProjectLevelVcsManager">
@@ -63,7 +63,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34940413" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34955752" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -112,6 +112,8 @@
       <workItem from="1632926033824" duration="7000" />
       <workItem from="1632932686232" duration="306000" />
       <workItem from="1633255246058" duration="1377000" />
+      <workItem from="1633258061933" duration="8236000" />
+      <workItem from="1633266396409" duration="2946000" />
     </task>
     <task id="LOCAL-00001" summary="afwefa">
       <created>1632310929911</created>

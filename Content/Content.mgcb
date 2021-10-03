@@ -13,12 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin fonts/scoreFont.spritefont
+#begin fonts/smallFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:fonts/scoreFont.spritefont
+/build:fonts/smallFont.spritefont
 
 #begin fonts/subtitleFont.spritefont
 /importer:FontDescriptionImporter
@@ -33,6 +33,30 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:fonts/titleFont.spritefont
+
+#begin music/music.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/music.ogg
+
+#begin music/music-2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/music-2.wav
+
+#begin music/music-base-layer.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/music-base-layer.wav
+
+#begin music/music-top-layer.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:music/music-top-layer.wav
 
 #begin sfx/click.wav
 /importer:WavImporter

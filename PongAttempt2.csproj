@@ -32,6 +32,7 @@
         <MonoGameContentReference Include="Content\Content.mgcb" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Content\music" />
+      <Content Include="Content\music\music-base-layer.wav" />
+      <Content Include="Content\music\music-top-layer.wav" />
     </ItemGroup>
 </Project>

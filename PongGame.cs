@@ -16,7 +16,7 @@ namespace Pong
 
         private State currentState;
         private State nextState;
-
+        
         public void SwitchState(State state)
         {
             // set the next state
@@ -30,6 +30,9 @@ namespace Pong
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            IsFixedTimeStep = false;
+            _graphics.SynchronizeWithVerticalRetrace = true;
+            
             
             // set screen resolution
             _graphics.PreferredBackBufferWidth = (int)Prefs.screenSize.X;
@@ -41,12 +44,17 @@ namespace Pong
             base.Initialize();
             // start at menu state
             currentState = new MenuState(this);
+            
+            Assets.musicTopLayer.Play(true, 0f);
+            Assets.musicTopLayer.FadeIn(5f);
+            Assets.musicBaseLayer.Play(true, 0f);
+            Assets.musicBaseLayer.FadeIn(5f);
         }
 
         protected override void LoadContent()
         {
             Renderer.Instance.spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            Renderer.Instance.graphicsDevice = GraphicsDevice;
             // Load all assets
             Assets.playerTexture = Content.Load<Texture2D>("sprites/player");
             Assets.ballTexture = Content.Load<Texture2D>("sprites/ball");
@@ -55,46 +63,48 @@ namespace Pong
 
             Assets.titleFont = Content.Load<SpriteFont>("fonts/titleFont");
             Assets.subtitleFont = Content.Load<SpriteFont>("fonts/subtitleFont");
+            Assets.smallFont = Content.Load<SpriteFont>("fonts/smallFont");
 
             Assets.playerHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/player hit"));
             Assets.wallHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/wall hit"));
-            Assets.music = new AudioClip(Content.Load<SoundEffect>("music/music"));
+            Assets.clickSFX = new AudioClip(Content.Load<SoundEffect>("sfx/click"));
+            Assets.musicTopLayer = new AudioClip(Content.Load<SoundEffect>("music/music-top-layer"));
+            Assets.musicBaseLayer = new AudioClip(Content.Load<SoundEffect>("music/music-base-layer"));
         }
 
 
         protected override void Update(GameTime gameTime)
         {
             // update the timer (gameTime.ElapsedGameTime.TotalSeconds = time of last frame)
-            fadeTimer.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            fadeTimer.Update(dt);
+            //Assets.musicTopLayer.Update(dt);
+            Assets.musicBaseLayer.Update(dt);
+            Assets.musicTopLayer.Update(dt);
             // Update Input
             InputHandler.Instance.UpdateInput();
 
-            // If there is a state to be loaded
-            if (nextState != null)
+            // If there is a state to be loaded and fade transition has finished
+            if (nextState != null && !fadeTimer)
             {
-                // wait for the fade effect to finish
-                if (fadeTimer) return;
+
                 // update the current state
                 currentState = nextState;
                 // reset the timer to start fade in effect
                 fadeTimer.Reset();
                 nextState = null;
             }
-            else
-            {
-                // update the current state
-                // don't update during the fade out effect so the game pauses when switching states
-                currentState.Update(gameTime);
-            }
+            // update the current state
+            currentState.Update(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
-
+            Renderer.Instance.DrawBG((float)gameTime.ElapsedGameTime.TotalSeconds);
             Renderer.Instance.Begin();
+            
             currentState.Draw(gameTime);
             // fade effect (check if the fade timer is running)
             if (fadeTimer)
@@ -107,12 +117,10 @@ namespace Pong
                     : 1f - fadeTimer.Time / fadeTimer.MaxTime;
                 
                 // draw the fade rectangle with transparency
-                Renderer.Instance.DrawSpriteScaled(Assets.fadeTexture, Vector2.Zero, Prefs.screenSize, Color.White * alpha);
+                Renderer.Instance.DrawSpriteScaled(Assets.fadeTexture, Vector2.Zero, Prefs.screenSize, Renderer.Instance.BGColor * alpha);
                 
             }
-            
             Renderer.Instance.End();
-            
             base.Draw(gameTime);
         }
     }
