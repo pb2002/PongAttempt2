@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pong.States
 {
-    
+        
     public class CoopGameOverState : State
     {
 
@@ -17,22 +17,25 @@ namespace Pong.States
         public CoopGameOverState(PongGame game, int score) : base(game)
         {
             this.score = score;
-            titleLabel = new Label(PongGame.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor, Assets.titleFont);
-            resultLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 120), Vector2.Zero, $"score: {score}", Renderer.subtitleColor, Assets.subtitleFont);
-            continueButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), "CONTINUE", Assets.subtitleFont);
+            titleLabel = new Label(Prefs.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor, Assets.titleFont);
+            resultLabel = new Label(Prefs.screenSize / 2 + new Vector2(0, 120), Vector2.Zero, $"score: {score}", Renderer.subtitleColor, Assets.subtitleFont);
+            continueButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), "CONTINUE", Assets.subtitleFont);
         }
 
         public override void Update(GameTime gameTime)
         {
-            if(InputHandler.instance.Confirm)
+            float dt = (float) gameTime.ElapsedGameTime.TotalSeconds;
+            continueButton.Update(dt);
+            if(continueButton.IsPressed)
                 game.SwitchState(new MenuState(game));
         }
 
         public override void Draw(GameTime gameTime)
         {
-            Vector2 screenCenter = PongGame.screenSize / 2;
+            Vector2 screenCenter = Prefs.screenSize / 2;
             titleLabel.Draw();
             resultLabel.Draw();
+            continueButton.Draw();
 
         }
     }

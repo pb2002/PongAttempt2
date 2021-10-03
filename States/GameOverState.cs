@@ -15,11 +15,11 @@ namespace Pong.States
         public GameOverState(PongGame game, int winningPlayer) : base(game)
         {
             this.winningPlayer = winningPlayer;
-            titleLabel = new Label(PongGame.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor, 
+            titleLabel = new Label(Prefs.screenSize / 2, Vector2.Zero, "GAME OVER", Renderer.titleColor, 
                 Assets.titleFont);
-            resultLabel = new Label(PongGame.screenSize / 2 + new Vector2(0, 120), Vector2.Zero, 
+            resultLabel = new Label(Prefs.screenSize / 2 + new Vector2(0, 120), Vector2.Zero, 
                 $"player {winningPlayer+1} wins!", Renderer.subtitleColor, Assets.subtitleFont);
-            continueButton = new Button(PongGame.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), 
+            continueButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), 
                 "CONTINUE", Assets.subtitleFont);
         }
 

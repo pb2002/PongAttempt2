@@ -4,6 +4,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Pong.States
 {
+    /// <summary>
+    /// Defines a Game state
+    /// Each game state has an Update and Draw loop. the PongGame class will call those
+    /// of the currently active game state.
+    /// </summary>
     public abstract class State
     {
         protected PongGame game;

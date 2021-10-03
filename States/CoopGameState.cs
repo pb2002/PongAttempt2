@@ -13,20 +13,22 @@ namespace Pong.States
         private Ball ball;
         
         private LifeCounter lifeCounter;
-        
+        private Label scoreLabel;
         
         public const float playerOffset = 100f;
         private int lives = 3;
         private int score = 0;
         public CoopGameState(PongGame game) : base(game)
         {
-            ball = new Ball(PongGame.screenSize / 2, Vector2.UnitX);
+            ball = new Ball(Prefs.screenSize / 2, Vector2.UnitX);
             ball.Reset();
             
-            player1 = new Player(0, new Vector2(playerOffset, PongGame.screenSize.Y / 2), Vector2.UnitX);
-            player2 = new Player(1, new Vector2(PongGame.screenSize.X - playerOffset, PongGame.screenSize.Y / 2), -Vector2.UnitX);
+            player1 = new Player(0, new Vector2(playerOffset, Prefs.screenSize.Y / 2), Vector2.UnitX);
+            player2 = new Player(1, new Vector2(Prefs.screenSize.X - playerOffset, Prefs.screenSize.Y / 2), -Vector2.UnitX);
 
-            lifeCounter = new LifeCounter(PongGame.screenSize / 2, 16);
+            lifeCounter = new LifeCounter(Prefs.screenSize / 2, 16);
+            scoreLabel = new Label(Prefs.screenSize / 2 + new Vector2(0, 100), Vector2.Zero, "0", Renderer.buttonColor,
+                Assets.subtitleFont);
         }
         private void Reset()
         {
@@ -44,20 +46,21 @@ namespace Pong.States
 
             if (ball.CheckPlayerCollision(player1) || ball.CheckPlayerCollision(player2))
             {
-                ball.speed *= 1.02f;
-                player1.IncreaseDifficulty();
+                // increase ball speed & player speed (/ difficulty for CPU players)
+                ball.speed *= Prefs.difficulty; 
+                player1.IncreaseDifficulty(); 
                 player2.IncreaseDifficulty();
                 score++;
-                
-                Assets.playerHitSFX.Play();
+                scoreLabel.text = $"{score}";
+                Assets.playerHitSFX.Play(); // Play sound effect
             }
 
             if (ball.CheckWallCollision())
             {
-                Assets.wallHitSFX.Play();
+                Assets.wallHitSFX.Play(); // play sound effect
             }
             
-            if (ball.position.X < 0 || ball.position.X > PongGame.screenSize.X)
+            if (ball.position.X < 0 || ball.position.X > Prefs.screenSize.X)
             {
                 lives--;
                 if (lives == 0)
@@ -67,11 +70,13 @@ namespace Pong.States
                 }
                 Reset();
             }
+            
         }
 
         public override void Draw(GameTime gameTime)
         {
             lifeCounter.Draw(lives);
+            scoreLabel.Draw();
             player1.Draw();
             player2.Draw();
             ball.Draw();

@@ -26,16 +26,16 @@ namespace Pong.States
         {
             this.gameMode = gameMode;
             
-            ball = new Ball(PongGame.screenSize / 2, Vector2.UnitX);
+            ball = new Ball(Prefs.screenSize / 2, Vector2.UnitX);
             ball.Reset();
 
             player1 = gameMode == GameMode.CPUBattle 
-                ? new CPUPlayer(0, new Vector2(100, PongGame.screenSize.Y/2), Vector2.UnitX, ball) 
-                : new Player(0, new Vector2(100, PongGame.screenSize.Y/2), Vector2.UnitX);
+                ? new CPUPlayer(0, new Vector2(100, Prefs.screenSize.Y/2), Vector2.UnitX, ball) 
+                : new Player(0, new Vector2(100, Prefs.screenSize.Y/2), Vector2.UnitX);
             
             player2 = gameMode == GameMode.TwoPlayer 
-                ? new Player(1, new Vector2(PongGame.screenSize.X-100, PongGame.screenSize.Y/2), -Vector2.UnitX) 
-                : new CPUPlayer(1, new Vector2(PongGame.screenSize.X-100, PongGame.screenSize.Y/2), -Vector2.UnitX, ball);
+                ? new Player(1, new Vector2(Prefs.screenSize.X-100, Prefs.screenSize.Y/2), -Vector2.UnitX) 
+                : new CPUPlayer(1, new Vector2(Prefs.screenSize.X-100, Prefs.screenSize.Y/2), -Vector2.UnitX, ball);
 
             player1LifeCounter = new LifeCounter(player1.position + 256 * Vector2.UnitX, 16);
             player2LifeCounter = new LifeCounter(player2.position - 256 * Vector2.UnitX, 16);
@@ -56,15 +56,16 @@ namespace Pong.States
 
             if (ball.CheckPlayerCollision(player1) || ball.CheckPlayerCollision(player2))
             {
-                ball.speed *= 1.02f;
+                // increase ball speed & player speed (/ difficulty for CPU players)
+                ball.speed *= Prefs.speedMultiplier;
                 player1.IncreaseDifficulty();
                 player2.IncreaseDifficulty();
-                Assets.playerHitSFX.Play();
+                Assets.playerHitSFX.Play(); // play sound effect
             }
 
             if (ball.CheckWallCollision())
             {
-                Assets.wallHitSFX.Play();
+                Assets.wallHitSFX.Play(); // play sound effect
             }
             
             if (ball.position.X < 0)
@@ -77,7 +78,7 @@ namespace Pong.States
                 }
                 Reset();
             }
-            else if (ball.position.X > PongGame.screenSize.X)
+            else if (ball.position.X > Prefs.screenSize.X)
             {
                 player2.lives--;
                 if (player2.lives == 0)

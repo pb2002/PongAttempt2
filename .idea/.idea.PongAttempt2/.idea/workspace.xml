@@ -5,33 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3765cc3f-3dac-4667-a793-a1146cde62ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/fonts/Montserrat-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/fonts/Montserrat-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PongAttempt2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/fonts/scoreFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/fonts/scoreFont.spritefont" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/fonts/subtitleFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/fonts/subtitleFont.spritefont" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/fonts/titleFont.spritefont" beforeDir="false" afterPath="$PROJECT_DIR$/Content/fonts/titleFont.spritefont" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Ball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/CPUPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/CPUPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Entities/LifeCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/LifeCounter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PongGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PongGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Prefs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Renderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Renderer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Singleton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/CompetitiveGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/CompetitiveGameState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/CoopGameOverState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/CoopGameOverState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/CoopGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/CoopGameState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/GameOverState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/GameOverState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/MenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/MenuState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/States/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/States/State.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Button.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Label.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Label.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +30,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Entity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/CPUPlayer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/States/CompetitiveGameState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/CPUPlayer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bb20f9ae245446549b5593ed09a352f5ea000/c2/b1461938/Game.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/CPUPlayer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Entity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Ball.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/LifeCounter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/bakke/RiderProjects/PongAttempt2/Entities/Entity.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yUcxWAvMEGKYrypE1eRW06Ry78" />
   <component name="ProjectLevelVcsManager">
@@ -111,7 +105,7 @@
       <workItem from="1632914807964" duration="10944000" />
       <workItem from="1632926033824" duration="7000" />
       <workItem from="1632932686232" duration="306000" />
-      <workItem from="1633255246058" duration="160000" />
+      <workItem from="1633255246058" duration="497000" />
     </task>
     <task id="LOCAL-00001" summary="afwefa">
       <created>1632310929911</created>
@@ -197,7 +191,35 @@
       <option name="project" value="LOCAL" />
       <updated>1632914893536</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added font ttf files to content&#10;fonts now reference ttf files instead of build-in fonts">
+      <created>1633255542600</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1633255542600</updated>
+    </task>
+    <task id="LOCAL-00014" summary="moved baseSpeed constants to Prefs class">
+      <created>1633255648344</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1633255648344</updated>
+    </task>
+    <task id="LOCAL-00015" summary="improved AI algorithm">
+      <created>1633255688562</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1633255688562</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added comments">
+      <created>1633255743010</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1633255743010</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +255,10 @@
     <MESSAGE value="added fade effect" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="reorganized assets&#10;scenes no longer load their own assets&#10;assets are now loaded and stored into Assets class when game starts&#10;removed AI jitter" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorganized assets&#10;scenes no longer load their own assets&#10;assets are now loaded and stored into Assets class when game starts&#10;removed AI jitter" />
+    <MESSAGE value="Added font ttf files to content&#10;fonts now reference ttf files instead of build-in fonts" />
+    <MESSAGE value="moved baseSpeed constants to Prefs class" />
+    <MESSAGE value="improved AI algorithm" />
+    <MESSAGE value="added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments" />
   </component>
 </project>
