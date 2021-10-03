@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework.Audio;
-using SharpDX.Direct3D9;
+﻿using Microsoft.Xna.Framework.Audio;
 
 namespace Pong
 {

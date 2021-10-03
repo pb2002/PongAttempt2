@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Pong.States;
 
 namespace Pong
 {

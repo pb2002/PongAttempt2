@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Media;
-
 namespace Pong
 {
     public static class Assets

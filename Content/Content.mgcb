@@ -34,18 +34,6 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/titleFont.spritefont
 
-#begin music/music.ogg
-/importer:OggImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:music/music.ogg
-
-#begin music/music-2.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:music/music-2.wav
-
 #begin music/music-base-layer.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
