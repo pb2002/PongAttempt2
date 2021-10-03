@@ -7,7 +7,8 @@ namespace Pong
     public class Entity
     {
         public Vector2 position;
-        public Texture2D sprite;
+        
+        protected Texture2D sprite;
         
         public Vector2 Size => new Vector2(sprite.Width, sprite.Height);
         
@@ -22,7 +23,8 @@ namespace Pong
                 return b;
             }
         }
-        public Entity(Vector2 position)
+        
+        protected Entity(Vector2 position)
         {
             this.position = position;
         }

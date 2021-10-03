@@ -8,15 +8,18 @@ namespace Pong
         public SpriteFont font;
         public string text;
         public Color color;
-        public Label(Vector2 position, Vector2 size, string text, Color color, SpriteFont font) : base(position, size)
+        private readonly Align align;
+        public Label(Vector2 position, Vector2 size, string text, Color color, SpriteFont font, Align align = Align.MidCenter) : base(position, size)
         {
             this.text = text;
             this.color = color;
             this.font = font;
+            this.align = align;
+            this.position += CalculateAlignOffset(align, size);
         }
         public void Draw()
         {
-            Renderer.Instance.DrawText(font, text, position, color);
+            Renderer.Instance.DrawText(position, text, color, font, align);
         }
     }
 }

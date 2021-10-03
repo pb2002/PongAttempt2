@@ -21,6 +21,7 @@
         {
             // subtract dt from time while timer is running (time > 0)
             if (Time > 0) Time -= dt;
+            if (Time < 0) Time = 0;
         }
         /// <summary>
         /// Resets the timer to MaxTime.

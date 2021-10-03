@@ -4,9 +4,9 @@ namespace Pong
 {
     public class Player : Entity
     {
-        protected static readonly Color[] playerColors = { new Color(255, 192, 64), new Color(64, 192, 240) };
 
-        public int playerId;
+
+        protected int playerId;
         public Vector2 normal;
         protected float speed;
         public int lives = 3;
@@ -40,7 +40,7 @@ namespace Pong
         }
         public virtual void Draw()
         {
-            Renderer.Instance.DrawSpriteCentered(sprite, position, playerColors[playerId], playerId == 1);
+            Renderer.Instance.DrawSpriteCentered(sprite, position, Renderer.playerColors[playerId], playerId == 1);
         }
     }
 }

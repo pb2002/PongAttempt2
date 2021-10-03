@@ -4,26 +4,26 @@ namespace Pong
 {
     public class LifeCounter : Entity
     {
-        private static readonly Color heartColor = new Color(255, 64, 128);
-        private float spacing;
+        private Player player;
+        private const float spacing = 20f;
 
-        public LifeCounter(Vector2 position, float spacing) : base(position)
+        public LifeCounter(Vector2 position, Player player) : base(position)
         {
-            this.spacing = spacing;
-            this.sprite = Assets.heartTexture;
+            sprite = Assets.heartTexture;
+            this.player = player;
         }
 
-        public void Draw(int lives)
+        public void Draw()
         {
-            var drawPos = position;
-            float widthOffset = sprite.Width;
-            // lives should be centered so move position to the left by width / 2
-            // width = (spacing + widthOffset) * (lives - 1)
-            drawPos.X -= (spacing + widthOffset) * (lives - 1) * 0.5f;
-            for (int i = 0; i < lives; i++)
+            float heartOffset = sprite.Width + spacing; 
+            // lives should be centered, so move the draw position to the left by width / 2
+            // where width = heartOffset * (lives - 1)
+            Vector2 drawPosition = position - Vector2.UnitX * heartOffset * (player.lives - 1) * 0.5f;
+            for (int i = 0; i < player.lives; i++)
             {
-                Renderer.Instance.DrawSpriteCentered(sprite, drawPos, heartColor, false);
-                drawPos.X += spacing + widthOffset; // move to the right
+                // draw a heart <3
+                Renderer.Instance.DrawSpriteCentered(sprite, drawPosition, Renderer.heartColor, false);
+                drawPosition.X += heartOffset; // move the draw position one spot to the right
             }
         }
     }

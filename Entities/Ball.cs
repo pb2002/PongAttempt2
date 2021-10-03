@@ -14,8 +14,8 @@ namespace Pong
         public Ball(Vector2 position, Vector2 direction) : base(position)
         {
             this.direction = direction;
-            this.speed = Prefs.baseSpeed;
-            this.sprite = Assets.ballTexture;
+            speed = Prefs.baseSpeed;
+            sprite = Assets.ballTexture;
         }
 
         public void Move(float dt)
@@ -39,20 +39,20 @@ namespace Pong
         }
         public bool CheckPlayerCollision(Player player)
         {
-            Rectangle pBounds = player.Bounds;
+            Rectangle playerBounds = player.Bounds;
             // check for collision
-            if (!Bounds.Intersects(pBounds)) return false;
+            if (!Bounds.Intersects(playerBounds)) return false;
             
             var tangent = new Vector2(-player.normal.Y, player.normal.X);
             
             // The difference in height.
             // Equal to the component parallel to the player tangent of vector between the player and ball center.
-            float heightDiff = Vector2.Dot(position - player.position, tangent);
+            float heightDifference = Vector2.Dot(position - player.position, tangent);
             
             direction = player.normal;
             
             // offset the direction along the player tangent based on where the ball hit the paddle.
-            direction += heightDiff / pBounds.Height * tangent;
+            direction += heightDifference / playerBounds.Height * tangent;
             
             // make sure to normalize because the length will not be equal to 1
             direction.Normalize();
@@ -78,7 +78,7 @@ namespace Pong
         }
         public void Draw()
         {
-            Renderer.Instance.DrawSpriteCentered(sprite,position, ballColor);
+            Renderer.Instance.DrawSpriteCentered(sprite, position, ballColor);
         }
     }
 }

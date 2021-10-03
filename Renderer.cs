@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Pong
 {
-    public enum TextAlign
+    public enum Align
     {
         TopLeft = 0,
         TopCenter = 1,
@@ -22,16 +22,29 @@ namespace Pong
             subtitleColor = new Color(255, 208, 80),
             buttonColor = new Color(160, 176, 192),
             buttonHoverColor = new Color(80, 184, 255),
-            darkBG = new Color(24,28,32),
-            lightBG = new Color(255,255,255),
+            backgroundDarkColor = new Color(24,28,32),
+            backgroundLightColor = new Color(255,255,255),
             heartColor = new Color(255, 64, 128);
+        
+        public static readonly Color[] playerColors = { new Color(255, 192, 64), new Color(64, 192, 240) };
 
         public SpriteBatch spriteBatch;
         public GraphicsDevice graphicsDevice;
         public void Begin() => spriteBatch.Begin();
         public void End() => spriteBatch.End();
         public bool darkMode = false;
-        public Color BGColor = lightBG;
+        public Color currentBackgroundColor = backgroundLightColor;
+        
+        /// <summary>
+        /// Clears the frame buffer
+        /// </summary>
+        /// <param name="dt">The duration of the last frame in seconds</param>
+        public void DrawBG(float dt)
+        {
+            currentBackgroundColor = Color.Lerp(currentBackgroundColor, darkMode ? backgroundDarkColor : backgroundLightColor, 10 * dt);
+            graphicsDevice.Clear(currentBackgroundColor);
+        }
+        
         /// <summary>
         /// Draw a sprite at the given position with the given scale
         /// </summary>
@@ -39,15 +52,11 @@ namespace Pong
         /// <param name="position">The position of the top-left corner of the sprite</param>
         /// <param name="scale">The scale of the sprite</param>
         /// <param name="color">The color of the sprite</param>
-        public void DrawBG(float dt)
-        {
-            BGColor = Color.Lerp(BGColor, darkMode ? darkBG : lightBG, 20 * dt);
-            graphicsDevice.Clear(BGColor);
-        }
         public void DrawSpriteScaled(Texture2D sprite, Vector2 position, Vector2 scale, Color color)
         {
             spriteBatch.Draw(sprite, position, null, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0.5f);
         }
+        
         /// <summary>
         /// Draw a sprite centered at the given position
         /// </summary>
@@ -66,15 +75,17 @@ namespace Pong
                 flip ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 
                 0.5f);
         }
+
         /// <summary>
         /// Draw text on screen.
         /// </summary>
-        /// <param name="font">The font to use</param>
-        /// <param name="text">The text to draw</param>
         /// <param name="position">The position to draw the text at</param>
+        /// <param name="text">The text to draw</param>
         /// <param name="color">The color of the text</param>
+        /// <param name="font">The font to use</param>
         /// <param name="align">The alignment of the text relative to the position</param>
-        public void DrawText(SpriteFont font, string text, Vector2 position, Color color, TextAlign align = TextAlign.MidCenter)
+        public void DrawText(Vector2 position, string text, Color color, SpriteFont font,
+            Align align = Align.MidCenter)
         {
             int hAlign = (int)align % 3;
             int vAlign = ((int)align - hAlign)/3;
@@ -88,7 +99,7 @@ namespace Pong
             {
                 (float width, float height) = font.MeasureString(line)/2;
                 Vector2 anchor = new Vector2(width * hAlign, 0);
-                spriteBatch.DrawString(font, line, position + vOffset * Vector2.UnitY, color, 0, anchor, 1.0f, SpriteEffects.None, 0.5f);
+                spriteBatch.DrawString(font, line, position + vOffset * Vector2.UnitY - anchor, color, 0, Vector2.Zero, 1.0f, SpriteEffects.None, 0.5f);
                 vOffset += font.LineSpacing; // go one line down
             }
         }

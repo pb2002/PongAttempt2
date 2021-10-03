@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Pong.States;
@@ -8,10 +9,11 @@ namespace Pong
 {
     public class PongGame : Game
     {
-        private GraphicsDeviceManager _graphics;        
+        private readonly GraphicsDeviceManager graphics;        
 
         // Fade effect timer
-        public Timer fadeTimer = new Timer(0.5f);
+        public readonly Timer fadeTimer = new Timer(0.5f);
+        public const float musicFadeTime = 2f;
 
         private State currentState;
         private State nextState;
@@ -26,28 +28,29 @@ namespace Pong
         
         public PongGame()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             IsFixedTimeStep = false;
-            _graphics.SynchronizeWithVerticalRetrace = true;
+            graphics.SynchronizeWithVerticalRetrace = true;
             
             
             // set screen resolution
-            _graphics.PreferredBackBufferWidth = (int)Prefs.screenSize.X;
-            _graphics.PreferredBackBufferHeight = (int)Prefs.screenSize.Y;
+            graphics.PreferredBackBufferWidth = (int)Prefs.screenSize.X;
+            graphics.PreferredBackBufferHeight = (int)Prefs.screenSize.Y;
         }
         
         protected override void Initialize()
         {
             base.Initialize();
             // start at menu state
-            currentState = new MenuState(this);
             
-            Assets.musicTopLayer.Play(true, 0f);
-            Assets.musicTopLayer.FadeIn(5f);
-            Assets.musicBaseLayer.Play(true, 0f);
-            Assets.musicBaseLayer.FadeIn(5f);
+            Assets.musicTopLayer.Play(0f, true);
+            Assets.musicBaseLayer.Play(0f, true);
+            Assets.musicTopLayer.FadeIn(musicFadeTime);
+            Assets.musicBaseLayer.FadeIn(musicFadeTime);
+            
+            currentState = new MenuState(this);
         }
 
         protected override void LoadContent()
@@ -64,27 +67,29 @@ namespace Pong
             Assets.subtitleFont = Content.Load<SpriteFont>("fonts/subtitleFont");
             Assets.smallFont = Content.Load<SpriteFont>("fonts/smallFont");
 
-            Assets.playerHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/player hit"));
-            Assets.wallHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/wall hit"));
+            Assets.playerHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/player-hit"));
+            Assets.wallHitSFX = new AudioClip(Content.Load<SoundEffect>("sfx/wall-hit"));
             Assets.clickSFX = new AudioClip(Content.Load<SoundEffect>("sfx/click"));
-            Assets.musicTopLayer = new AudioClip(Content.Load<SoundEffect>("music/music-top-layer"));
             Assets.musicBaseLayer = new AudioClip(Content.Load<SoundEffect>("music/music-base-layer"));
+            Assets.musicTopLayer = new AudioClip(Content.Load<SoundEffect>("music/music-top-layer"));
         }
 
 
         protected override void Update(GameTime gameTime)
         {
-            // update the timer (gameTime.ElapsedGameTime.TotalSeconds = time of last frame)
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            
+            // update the timer
             fadeTimer.Update(dt);
-            //Assets.musicTopLayer.Update(dt);
+
             Assets.musicBaseLayer.Update(dt);
             Assets.musicTopLayer.Update(dt);
-            // Update Input
-            InputHandler.Instance.UpdateInput();
+            
+            // Update Input (only when window is in focus)
+            if(IsActive) InputHandler.Instance.UpdateInput();
 
             // If there is a state to be loaded and fade transition has finished
-            if (nextState != null && !fadeTimer)
+            if (nextState != null && !fadeTimer.IsRunning)
             {
 
                 // update the current state
@@ -106,7 +111,7 @@ namespace Pong
             
             currentState.Draw(gameTime);
             // fade effect (check if the fade timer is running)
-            if (fadeTimer)
+            if (fadeTimer.IsRunning)
             {
                 // if the next state is null, we have changed states already, so we should
                 // apply a fade out effect.
@@ -116,7 +121,7 @@ namespace Pong
                     : 1f - fadeTimer.Time / fadeTimer.MaxTime;
                 
                 // draw the fade rectangle with transparency
-                Renderer.Instance.DrawSpriteScaled(Assets.fadeTexture, Vector2.Zero, Prefs.screenSize, Renderer.Instance.BGColor * alpha);
+                Renderer.Instance.DrawSpriteScaled(Assets.fadeTexture, Vector2.Zero, Prefs.screenSize, Renderer.Instance.currentBackgroundColor * alpha);
                 
             }
             Renderer.Instance.End();

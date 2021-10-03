@@ -52,17 +52,17 @@
 /processorParam:Quality=Best
 /build:sfx/click.wav
 
-#begin sfx/player hit.wav
+#begin sfx/player-hit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:sfx/player hit.wav
+/build:sfx/player-hit.wav
 
-#begin sfx/wall hit.wav
+#begin sfx/wall-hit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:sfx/wall hit.wav
+/build:sfx/wall-hit.wav
 
 #begin sprites/ball.png
 /importer:TextureImporter

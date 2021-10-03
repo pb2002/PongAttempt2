@@ -26,6 +26,8 @@ namespace Pong
         // Confirm input. confirmDown is used to make sure Confirm is only true for the first frame.
         private bool confirmDown = false;
         public bool Confirm { get; private set; } = false;
+
+        private bool exitDown = false;
         public bool Exit { get; private set; } = false;
         
         public Vector2 MousePosition { get; private set; }
@@ -60,8 +62,10 @@ namespace Pong
             Confirm = confirmRaw && !confirmDown;
             confirmDown = confirmRaw;
             // Exit
-            Exit = keyboardState.IsKeyDown(KeyboardMapping[0][3]) ||
-                      gamePadState.IsButtonDown(ControllerMapping[0][3]);
+            bool exitRaw = keyboardState.IsKeyDown(KeyboardMapping[0][3]) ||
+                           gamePadState.IsButtonDown(ControllerMapping[0][3]);
+            Exit = exitRaw && !exitDown;
+            exitDown = exitRaw;
             // Mouse position
             MousePosition = mouseState.Position.ToVector2();
             

@@ -5,9 +5,9 @@ namespace Pong.States
     
     public class GameOverState : State
     {
-        private Label titleLabel;
-        private Label resultLabel;
-        private Button continueButton;
+        private readonly Label titleLabel;
+        private readonly Label resultLabel;
+        private readonly Button continueButton;
         
         private int winningPlayer;
         public GameOverState(PongGame game, int winningPlayer) : base(game)
@@ -19,7 +19,7 @@ namespace Pong.States
                 $"player {winningPlayer+1} wins!", Renderer.subtitleColor, Assets.subtitleFont);
             continueButton = new Button(Prefs.screenSize / 2 + new Vector2(0, 184), new Vector2(200, 48), 
                 "CONTINUE", Assets.subtitleFont);
-            Assets.musicBaseLayer.FadeIn(4f);
+            Assets.musicBaseLayer.FadeIn(2f);
         }
 
         public override void Update(GameTime gameTime)

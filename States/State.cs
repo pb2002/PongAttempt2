@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace Pong.States
 {
@@ -9,11 +10,12 @@ namespace Pong.States
     /// </summary>
     public abstract class State
     {
-        protected PongGame game;
-        public State(PongGame game)
+        protected event Action<GameTime> OnUpdate;
+        protected event Action<GameTime> OnDraw;
+        protected readonly PongGame game;
+        protected State(PongGame game)
         {
             this.game = game;
-            
         }
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(GameTime gameTime);
